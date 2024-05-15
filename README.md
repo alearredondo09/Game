@@ -19,7 +19,7 @@ El programa solo corren en la consola y esta hecho con c++. Para poder compilar 
   5. En tu terminal escribe .\main
 
 # Diagrama Uml
-![Image](JuegoRol.pdf)
+![Image](Juego_Rol.pdf)
 
 
 
