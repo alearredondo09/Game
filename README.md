@@ -17,6 +17,7 @@ El programa solo corren en la consola y esta hecho con c++. Para poder compilar 
      Para navegar entre carpetas, usa cd + el nombre de la carpeta. Para ver el directorio de cada carpeta usar dir (para sistema operativo Windows) y ls (para sistema operativo Linux/Mac OS).
   4. En tu terminal escribe g++ main.cpp -o main
   5. En tu terminal escribe .\main
+  6. ¡Diviértete jugando con el programa!
 
 # Diagrama Uml
 ![Image](Juego_Rol.pdf)
