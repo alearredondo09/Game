@@ -7,7 +7,7 @@ Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo
 En un futuro distópico, la humanidad ha colonizado varios planetas en diferentes sistemas solares. La Tierra, ahora un lugar casi abandonado y decadente, es solo uno de los muchos mundos que conforman la galaxia conocida. En este contexto, un grupo de exploradores espaciales, reclutados de diferentes razas y planetas, se unen en una nave estelar llamada 'Aurora' para derrotar a sephiroth. 
 
 # Funcionalidad : 
-Cada personaje posee habilidades únicas y una historia personal que los defina. Lo que deberán hacer es resolver enígmas y acertijos y atacar. 
+Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas y una historia personal que los defina. Lo que deberán hacer es resolver enígmas y acertijos y puede atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con la historia y no morir.  
 
 # Consideraciones : 
 El programa solo corren en la consola y esta hecho con c++. Para poder compilar el programa se deberá seguir los siguientes pasos: 
