@@ -1,5 +1,5 @@
 # ♠️ Juego de Rol ♠️
-Descripción / Contexto : 
+# Descripción / Contexto : 
 
 ![Image](ç.jpg)
 Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo-distopico.jpg
