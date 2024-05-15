@@ -20,6 +20,8 @@ El programa solo corren en la consola y esta hecho con c++. Para poder compilar 
   5. En tu terminal escribe .\main (para Windows).
   6. ¡Diviértete jugando con el programa!
 
+Si el usuario introduce algún término que no está establecido en el programa, el juego tendrá que volver a preguntarle al usuario por el input correcto hasta que reciba uno con el que si está familiarizado. 
+
 ### Diagrama Uml
 ![Image]()
 
