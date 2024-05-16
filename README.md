@@ -22,7 +22,7 @@ El programa solo corren en la consola y está hecho con c++, por lo que para cor
 
 - Si el usuario introduce algún término que no está establecido en el programa, el juego tendrá que volver a preguntarle al usuario por el input correcto hasta que reciba uno con el que si está familiarizado.
 
-## Interés 🛸: 
+## Interés 🛰️: 
 Este proyecto surgió entre una de varias ideas, sin embargo, fue la que elegí desarrollar por que creo que tiene la complejidad para que pueda aprender a detalle todos los temas y a su vez repasar muchos temas que he visto a lo largo de este año. También surge por mi amor de crear historias, aunque, hacer un juego de rol es algo nuevo para mí, lo disfrutaré a mi máximo. 
 
 ### Diagrama Uml 🏁 : 
