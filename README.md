@@ -23,7 +23,7 @@ El programa solo corren en la consola y está hecho con c++, por lo que para cor
 - Si el usuario introduce algún término que no está establecido en el programa, el juego tendrá que volver a preguntarle al usuario por el input correcto hasta que reciba uno con el que si está familiarizado. 
 
 ### Diagrama Uml
-![Image]()
+![Image](Juego_Rol.png)
 
 
 
