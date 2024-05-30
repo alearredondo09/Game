@@ -46,6 +46,7 @@ int main(){
             cin >> nombre_personaje; 
             robot1->setNombreP(nombre_personaje);
             cin.ignore(); // Limpia el buffer después de leer un entero
+
             // string hist_per, string fuerxa, string hab
             cout << "Este personaje tiene que tener una historia, dime la historia de este personaje: " << endl;
             getline(cin, historia_personaje);
@@ -58,8 +59,7 @@ int main(){
             getline(cin, hab);
             robot1->setHab(hab);
             robot1->imprimir_Personaje();
-            
-
+            aura.robot_atacar(robot1);
 
          } else if (eleccion_personaje == 2){
 
@@ -74,6 +74,7 @@ int main(){
         cout << "Juego no iniciado.\n";
     }
 
+    
     
     delete robot1;
     return 0;

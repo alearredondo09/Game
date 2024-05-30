@@ -16,7 +16,7 @@ class Planeta {
         string historia; 
         Personaje* personajes[10];
         int persona;
-
+        Enigma enigma;
     public: 
         Planeta();
         Planeta(string nom, string histOria);
@@ -36,6 +36,8 @@ class Planeta {
         void addAlienigena(string nom, string hist_per, string puesto);
         void addSephiroth(string nom, string hist_per, string mot, string puEsto);
         void consultarP(string personaje);
+        void robot_atacar(Personaje* objetivo);
+        void piloto_ataca(Personaje* objetivo2);
 };
 
 Planeta::Planeta(){
@@ -97,6 +99,26 @@ void Planeta::consultarP(string personaje) {
         } else{
             cout << "Personaje no encontrado. " << endl; 
         }
+    }
+}
+
+void Planeta::robot_atacar(Personaje* objetivo){
+    Robot* robot_atacante;
+    if (robot_atacante->getHab() == "laser"){
+        cout << objetivo << " ha atacado existosamente " << endl;
+        enigma.puntaje_adquirido(true);
+    } else{
+        cout << objetivo << " no ha atacado " << endl;
+    }
+}
+
+void Planeta::piloto_ataca(Personaje* objetivo2){
+    Piloto* piloto_atacante;
+    if (piloto_atacante -> getHoras() == 20){
+        cout << "Has logrado adivinar y atacar " << objetivo2 << endl;
+        enigma.puntaje_adquirido(true);
+    } else{
+        cout << objetivo2 << " no ha sido atacado" << endl;
     }
 }
 
