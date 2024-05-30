@@ -13,23 +13,10 @@ class Robot : public Personaje{
         string fuerza_fisica;
         int anio_fabricacion; 
         string habilidad_tecnicas;
-        int habilidades; 
     public:
-        Robot() : Personaje(){
-            fuerza_fisica = " fuerza extremadamente alta";
-            anio_fabricacion = 1998;
-        };
-        Robot(string nom, string hist_per, string fuerxa, string hab) : Personaje( nom, hist_per){
-            fuerza_fisica = fuerxa; 
-            habilidad_tecnicas = hab;
-            anio_fabricacion = 1998;
-        }
-        Robot(string nom, int edAd, string hist_pers, string hab, string fuerxa, int anio) : Personaje(nom,edAd,hist_pers){
-            fuerza_fisica = fuerxa;
-            habilidad_tecnicas = hab; 
-            anio_fabricacion = anio;
-        }
-
+        Robot();
+        Robot(string nom, string hist_per, string fuerxa, string hab);
+        Robot(string nom, int edAd, string hist_pers, string hab, string fuerxa, int anio);
         string getFuerxa(){return fuerza_fisica;}
 
         int getAnioFab(){return anio_fabricacion;}
@@ -44,12 +31,24 @@ class Robot : public Personaje{
 
         void manipulacion_magnetica(bool manipulacion);
 
-        void agregaHabilidad(string hab);
-
-        void imprimir_Habilidades();
-
         void imprimir_Personaje();
+        void accion(bool inspeccionar);
 };
+
+Robot::Robot() : Personaje(){
+    fuerza_fisica = " fuerza extremadamente alta";
+    anio_fabricacion = 1998;
+};
+Robot::Robot(string nom, string hist_per, string fuerxa, string hab) : Personaje( nom, hist_per){
+    fuerza_fisica = fuerxa; 
+    habilidad_tecnicas = hab;
+    anio_fabricacion = 1998;
+}
+Robot::Robot(string nom, int edAd, string hist_pers, string hab, string fuerxa, int anio) : Personaje(nom,edAd,hist_pers){
+    fuerza_fisica = fuerxa;
+    habilidad_tecnicas = hab; 
+    anio_fabricacion = anio;
+}
 
 void Robot::setFuerxa(string fuerxa){
     fuerza_fisica = fuerxa;
@@ -71,12 +70,20 @@ void Robot::manipulacion_magnetica(bool manipulacion){
     }
 } 
 
-
 void Robot::imprimir_Personaje(){
-    cout << "Esta historia tiene un personaje llamado " << getNombreP() << " y cuyas habilidad tecnica es: " << getHab() ; 
-    cout << "Estas habilidades le permiten al robot desarrollarse de mejor manera en la historia, teniendo la oportunidad de sobresalir en algunos ambitos" ;
-    cout << " A su vez su fuerza, la cual es " << getFuerxa() << " le permite tener mejor alcancé y agarre de las cosas al hacer actividades fisicas."; 
-    cout << " Si bien, el robot fue fabricado en " << getAnioFab() << " se siguen manteniendo intacto y sin malgaste alguno. " << endl;  
+    Personaje::imprimir_Personaje();
+    cout << "Cuya habilidad tecnica es: " << habilidad_tecnicas << " ."; 
+    cout << " Estas habilidades le permiten al robot desarrollarse de mejor manera en la historia, teniendo la oportunidad de sobresalir en algunos ambitos" ;
+    cout << " A su vez su fuerza, la cual es " << fuerza_fisica << " le permite tener mejor alcance y agarre de las cosas al hacer actividades fisicas."; 
+    cout << " Si bien, el robot fue fabricado en " << anio_fabricacion << " se siguen manteniendo intacto y sin malgaste alguno. " << endl;  
+}
+
+void Robot::accion(bool inspeccionar){
+    if (inspeccionar){
+        cout << "El robot ha inspeccionado. " << endl;
+    } else {
+        cout << "El robot no ha inspeccionado. " << endl;
+    }
 }
 
 #endif
