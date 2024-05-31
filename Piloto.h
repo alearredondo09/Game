@@ -1,66 +1,59 @@
 #ifndef PILOTO_H
 #define PILOTO_H
-#include <iostream>
+#include <iostream> 
 #include <string>
 #include "Personaje.h"
 
-using namespace std;
-
 class Piloto : public Personaje{
-    private:
-        int experiencia_anios;
-        int horas_vuelo; 
-        string lugar_trabajo; 
+    private: 
+        std::string vehiculo;
     public: 
-        Piloto ();
-        Piloto(string nom, int edAd, string origen, string hist_pers, int exp_anios, int horas_v, string lug_trab) ;
-        int getExperiencia(){return experiencia_anios;}
-        int getHoras(){return horas_vuelo;}
-        string getLugarTrab(){return lugar_trabajo;}
-        void setExperiencia(int exp_anios);
-        void setHoras(int horas_v);
-        void setLugarTrab(string lug_trab);
-        void imprimir_Personaje();
-        void accion(bool pilotear, int h_vuelos);
+        Piloto();
+        Piloto(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo);
+        ~Piloto();
+        std::string getVehiculo();
+        void setVehiculo(std::string _vehiculo);
+        void imprimir_personaje(); //imprime la informacion del personaje        
+        void atacar(Personaje* objetivo); //funcion que permite que el personaje ataque
+        void recibirDanio(int danio); // funcion que permite recibir danio
+        void mostrarEstado();
 };
 
-Piloto::Piloto () : Personaje(){
-    experiencia_anios = 0;
-    horas_vuelo = 0;
-    lugar_trabajo = " "; 
+Piloto::Piloto(){
+    vehiculo = "nave espacial";
+}
+Piloto::Piloto(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo) : Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
+    vehiculo = _vehiculo;
+}
+Piloto::~Piloto(){
+    std::cout << "El destructor de piloto ha sido llamado. " << std::endl;
+}
+std::string Piloto::getVehiculo(){
+    return vehiculo;
+}
+void Piloto::setVehiculo(std::string _vehiculo){
+   vehiculo = _vehiculo;
+}
+void Piloto::imprimir_personaje(){
+    Personaje::imprimir_personaje();
+    std::cout << "El vehiculo de este personaje es: " << vehiculo << std::endl;
+}
+void Piloto::atacar(Personaje* objetivo){
+    int danio = ataque; 
+    if (vehiculo == "nave espacial"){
+        danio += 5;
+    }
+    objetivo->recibirDanio(danio);
 }
 
-Piloto::Piloto(string nom, int edAd, string origen, string hist_pers, int exp_anios, int horas_v, string lug_trab) : Personaje(nom,edAd,hist_pers){
-    experiencia_anios = exp_anios;
-    horas_vuelo = horas_v; 
-    lugar_trabajo = lug_trab; 
-}
-
-void Piloto::setExperiencia(int exp_anios){
-    experiencia_anios = exp_anios;
-
-}
-void Piloto::setHoras(int horas_v){
-    horas_vuelo = horas_v; 
-}
-void Piloto::setLugarTrab(string lug_trab){
-    lugar_trabajo = lug_trab;
-}
-
-void Piloto::imprimir_Personaje(){
-    Personaje::imprimir_Personaje();
-    cout << " Este piloto tiene " << getExperiencia() << " anios de experiencia volando aviones y tiene " << getHoras() ; 
-    cout << " de vuelo y su lugar de trabajo es " << getLugarTrab() << "\nEste personaje tiene una historia unica " ; 
-    cout << getHistoria() << ". Este es un gran personaje. " << endl; 
-}
-
-void Piloto::accion(bool pilotear, int h_vuelos){
-    if (pilotear){
-        cout << "El piloto ha atacado mas de " << h_vuelos << " de su experiencia en horas de vuelo. " << endl;
-    } else {
-        cout << "El piloto ha atacado menos de " << h_vuelos << " de su experiencia en horas de vuelo. " << endl;
+void Piloto::recibirDanio(int danio){
+    int daniioRecibido = danio - defensa;
+    if (daniioRecibido > 0){
+        salud -= daniioRecibido;
     }
 }
 
-
+void Piloto::mostrarEstado() {
+    std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Vehiculo:" << vehiculo << std::endl;
+}
 #endif

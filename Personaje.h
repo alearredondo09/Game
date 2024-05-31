@@ -3,66 +3,109 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+/*
+Clase creada el 10 de Mayo
+Esta clase es la clase padre que va a heredar sus atributos y metodos a las clases hijas
+*/
 
 class Personaje{
-    protected:
-        string nombre;
+    protected: 
+        // atributos de mi clase personaje
+        std::string nombre; 
         int edad;
-        string historia_personal;
-    public:
-        // Declaraciones de los constructores
-        Personaje();
-        Personaje(string nom, string hist_per);
-        Personaje(string nom, int edAd, string hist_pers);
-        string getNombreP() const{ return nombre; }
-        int getEdad()const { return edad; }
-        string getHistoria() { return historia_personal; }
+        int nivel;
+        int salud;
+        int ataque;
+        int defensa;
 
-        void setNombreP(string nom);
-        void setEdad(int edAd);
-        void setHistoria(string hist_per);
 
-        virtual void imprimir_Personaje(); // Declarar como función pura virtual
-        virtual void accion();
+    public: 
+        Personaje(); //constructor por default de mi clase Personaje
+        Personaje(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa); // constructor parametrizado de mi clase Personaje
+        virtual ~Personaje(); //destructor 
+        std::string getNom(); // getter para nombre
+        int getEdad(); // getter para edad
+        int getNivel(); // getter para nivel
+        int getSalud(); // getter para salud
+        int getAtaque(); // getter para ataque
+        int getDefensa(); // getter para defensa
+        void setNombre(std::string nom); //setter para nombre
+        void setEdad(int _edad); //setter para edad
+        void setNivel(int _nivel); // setter de nivel
+        void setSalud(int _salud); // setter de salud
+        void setAtaque(int _ataque); // setter de ataque
+        void setDefensa(int _defensa); // setter de defensa
+        virtual void imprimir_personaje(); //imprime la informacion del personaje
+        virtual void atacar(Personaje* objetivo) = 0; //funcion que permite que el personaje ataque
+        virtual void recibirDanio(int danio) = 0; // funcion que permite recibir danio
+        virtual void mostrarEstado() = 0; // funcion que muestra el estado del personaje
 };
 
 Personaje::Personaje(){
-    nombre = "";
-    edad = 25;
-    historia_personal = ""; 
+    nombre = "Anakin";
+    edad = 27;
+    nivel = 100;
+    salud = 10,
+    ataque = 5; 
+    defensa = 5;
 }
 
-Personaje::Personaje(string nom, string hist_per){
+Personaje::Personaje(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa){
     nombre = nom;
-    edad = 18;
-    historia_personal = hist_per; 
+    edad = _edad; 
+    nivel = _nivel;
+    salud = _salud;
+    ataque = _ataque;
+    defensa = _defensa;
 }
 
-Personaje::Personaje(string nom, int edAd, string hist_pers){
+Personaje::~Personaje() {
+    std::cout << "Destructor de Personaje llamado" << std::endl;
+}
+
+std::string Personaje::getNom(){return nombre;}
+
+int Personaje::getEdad(){return edad;}
+
+int Personaje::getNivel(){return nivel;}
+
+int Personaje::getSalud(){return salud;}
+
+int Personaje::getAtaque(){return ataque;}
+
+int Personaje::getDefensa(){return defensa;}
+
+void Personaje::setNombre(std::string nom){
     nombre = nom;
-    edad = edAd;
-    historia_personal = hist_pers;
 }
 
-void Personaje::setNombreP(string nom){
-    nombre = nom;
+void Personaje::setEdad(int _edad){
+    edad = _edad;
 }
 
-void Personaje::setEdad(int edAd){
-    edad = edAd;
+void Personaje::setNivel(int _nivel){
+    nivel = _nivel;
 }
 
-void Personaje::setHistoria(string hist_per){
-    historia_personal = hist_per;
+void Personaje::setSalud(int _salud){
+    salud = _salud;
 }
 
-void Personaje::imprimir_Personaje(){
-    cout << "Esta historia se encuentra compuesta por nuestro personaje " << nombre << " ese personaje tiene una edad de " << edad << " anios. \nLa historia que este personaje es " << historia_personal << ". \n";
+void Personaje::setAtaque(int _ataque){
+    ataque = _ataque;
 }
 
-void Personaje::accion(){
-    cout << "El personaje puede o no realizar una accion, lo descubriremos. " << endl;
+void Personaje::setDefensa(int _defensa){
+    defensa = _defensa;
 }
+
+void Personaje::imprimir_personaje(){
+    std::cout << "Nombre: " << nombre << "\n";
+    std::cout << "Edad: " << edad << "\n";
+}
+
+
+
+
 
 #endif

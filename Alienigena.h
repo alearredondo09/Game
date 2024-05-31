@@ -3,69 +3,74 @@
 #include <iostream>
 #include <string>
 #include "Personaje.h"
-using namespace std;
-
 
 class Alienigena : public Personaje{
     private: 
-        string color;
-        string puesto_batalla;
-        int num_medallas;
+        std::string habilidad;
     public: 
-        Alienigena():Personaje(){
-            color = " ";
-            puesto_batalla = " ";
-            num_medallas = 4;
-        };
-        Alienigena(string nom, string hist_per, string puesto) : Personaje(nom, hist_per){
-            puesto_batalla = puesto;
-        };
-        Alienigena(string nom, int edAd,  string hist_pers, string colOr, string puesto, int medallas) : Personaje(nom,edAd,hist_pers){
-            color = colOr; 
-            puesto_batalla = puesto; 
-            num_medallas = medallas; 
-        }
-        string getColor() {return color;}
-        string getPuesto() {return puesto_batalla;}
-        int getMedallas() {return num_medallas;}
-        void setColor(string colOr);
-        void setPuesto(string puesto);
-        void setMedallas(int medallas);
-        void levitar(bool levitar);
-        void teletransportarse(bool teletrans);
-        void control_mental(bool control);
-        void cambiar_forma(bool cambio);
-        
-        // Sobrescribir la función imprimir_Personaje
-        void imprimir_Personaje();
-        void accion(bool atacar);
+        Alienigena(); // constructor default
+        Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
+        ~Alienigena();
+        std::string getHabilidad();
+        void setHabilidad(std::string hab);
+        void imprimir_personaje(); //imprime la informacion del personaje
+        void atacar(Personaje* objetivo); //funcion que permite que el personaje ataque
+        void recibirDanio(int danio); // funcion que permite recibir danio
+        void mostrarEstado(); //funcion que muestra el estado del personaje
+
 };
 
-void Alienigena::setColor(string colOr){
-    color = colOr;
+Alienigena::Alienigena(){
+    habilidad = " ";
 }
 
-void Alienigena::setPuesto(string puesto){
-    puesto_batalla = puesto;
+Alienigena::Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab): Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
+    nombre = nom;
+    edad = _edad; 
+    nivel = _nivel;
+    salud = _salud;
+    ataque = _ataque;
+    defensa = _defensa;
+    habilidad = hab;
+}
+Alienigena::~Alienigena(){
+    std::cout << "Destructor de Alienigena llamado" << std::endl;
 }
 
-void Alienigena::setMedallas(int medallas){
-    num_medallas = medallas;
+std::string Alienigena::getHabilidad(){
+    return habilidad;
 }
 
-void Alienigena::imprimir_Personaje(){
-    Personaje::imprimir_Personaje();
-    cout << "Algunos datos interesantes de nuestro personaje es que su color es: ";
-    cout << getColor() << ", su puesta de batalla es " << getPuesto() << " y su numero";
-    cout << " de medallas ganadas es de " << getMedallas() << ". Increible no lo crees? " << endl;
+void Alienigena::setHabilidad(std::string hab){
+    habilidad = hab;
 }
 
-void Alienigena::accion(bool atacar){
-    if (atacar){
-        cout << "El alienigena ataco." << endl;
-    } else {
-        cout << "El alienigena no ataco." << endl;
+void Alienigena::imprimir_personaje(){
+    Personaje::imprimir_personaje();
+    std::cout << "Nivel: " << nivel << "\n";
+    std::cout << "Salud: " << salud << "\n"; 
+    std::cout << "Ataque: " << ataque << "\n"; 
+    std::cout << "Defensas " << defensa << "\n";
+    std::cout << "Habilidad " << habilidad << std::endl;
+}
+
+void Alienigena::atacar(Personaje* objetivo){
+    int danio = ataque; 
+    if (habilidad == "veneno"){
+        danio += 7;
     }
+    objetivo->recibirDanio(danio);
+}
+
+void Alienigena::recibirDanio(int danio){
+    int daniioRecibido = danio - defensa;
+    if (daniioRecibido > 0){
+        salud -= daniioRecibido;
+    }
+}
+
+void Alienigena::mostrarEstado() {
+    std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Habilidad:" << habilidad << std::endl;
 }
 
 #endif

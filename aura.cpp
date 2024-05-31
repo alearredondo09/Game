@@ -1,81 +1,42 @@
 #include <iostream>
-#include <string>
 #include "Planeta.h"
+#include "Robot.h"
+#include "Alienigena.h"
+#include "Piloto.h"
+#include "Sephiroth.h"
+#include "Enigma.h"
 
 using namespace std;
 
-// establecer la edad solamente en años
+int main() {
+    // Crear personajes
+    //Robot(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab);
+    Robot* r1 = new Robot("RobotX", 12, 4, 5, 3, 5,"laser");
+    //Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
+    Alienigena* a1 = new Alienigena("AlienY", 78,6,4,8, 1, "veneno");
+    // std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo
+    Piloto* p1 = new Piloto("PilotoZ", 37,2,9,3,1, "nave Espacial");
+    //Sephiroth(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _puesto);
+    Sephiroth* s1 = new Sephiroth("SephirothA", 52, 3, 4,5,6,"general");
+
+    // Crear enigma
+    Enigma enigma("El enigma del destino", 5);
+
+    // Crear planeta usando el constructor vacío
+    Planeta aura;
+
+    // Mostrar estado inicial del planeta
+    aura.mostrarEstado();
+
+    // Simular combate
+    aura.simularCombate(r1, a1);
+    aura.simularCombate(r1,s1);
 
 
+    delete r1;
+    delete a1;
+    delete p1;
+    delete s1;
 
-int main(){
-    
-    // variables
-    Robot* robot1 = new Robot();
-    Planeta aura;   
-    string nombre_planeta;
-    bool inicio_juego;
-    int eleccion_personaje;
-    string nombre_personaje; 
-    string historia_personaje;
-    string nivel_fuerza;
-    string hab;
-
-    cout << "Esta historia es una historia basada en mi propia imaginacion, todo es ficticio.\n";
-    cout << "Para iniciar deberas decirme si quieres iniciar el juego:\nPon 1 para iniciar el juego\nSino el juego no sera comenzado\n";
-    cin >> inicio_juego;
-    cin.ignore(); // Limpia el buffer después de leer un booleano/entero
-
-// hacer un ciclo para poder pedirle al usuario algo valido 
-    if (inicio_juego == 1) {
-        cout << "Para iniciar debemos de crear el planeta en donde viviras.\n";
-        cout << "Tu podras elegir el nombre de tu planeta. Escribe el nombre de planeta: ";
-        cin >> nombre_planeta;
-        aura.setNombre(nombre_planeta);
-        cout << aura.getNombre()<< endl;
-        cout << "Tu podras elegir que personaje ser de una lista que se muestra a continuacion: \n";
-        cout << "1 - Robot \n2 - Alienigena \n3 - Piloto\n";
-        cout << "Cual vas a elegir?: ";
-        cin >> eleccion_personaje;
-        cin.ignore(); // Limpia el buffer después de leer un entero
-
-
-         if (eleccion_personaje == 1){
-            cout << "Ahora que elegiste ser el robot debemos comenzar a crear nuestro personaje\n";
-            cout << "Debemos iniciar eligiendo el nombre del robot. Como te gustaria llamarte?: ";
-            cin >> nombre_personaje; 
-            robot1->setNombreP(nombre_personaje);
-            cin.ignore(); // Limpia el buffer después de leer un entero
-
-            // string hist_per, string fuerxa, string hab
-            cout << "Este personaje tiene que tener una historia, dime la historia de este personaje: " << endl;
-            getline(cin, historia_personaje);
-
-            robot1->setHistoria(historia_personaje);
-            cout << "Dame que nivel de fuerza tiene el robot: " << endl;
-            getline(cin,nivel_fuerza);
-            robot1->setFuerxa(nivel_fuerza);
-            cout << "Dame la habilidad que tiene el robot: " << endl,
-            getline(cin, hab);
-            robot1->setHab(hab);
-            robot1->imprimir_Personaje();
-            aura.robot_atacar(robot1);
-
-         } else if (eleccion_personaje == 2){
-
-         } else if (eleccion_personaje == 3){
-
-         } else{
-            cout << "Ese no es un personaje valido. Vuelve a intentarlo \n";
-         }
-
-
-    } else {
-        cout << "Juego no iniciado.\n";
-    }
-
-    
-    
-    delete robot1;
     return 0;
 }
