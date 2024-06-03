@@ -18,7 +18,6 @@ class Sephiroth : public Personaje{
         void atacar(Personaje* objetivo); //funcion que permite que el personaje ataque
         void recibirDanio(int danio); // funcion que permite recibir danio
         void mostrarEstado();
-
 };
 
 Sephiroth::Sephiroth() : Personaje(){
@@ -30,7 +29,7 @@ Sephiroth::Sephiroth(std::string nom, int _edad, int _nivel, int _salud, int _at
 }
 
 Sephiroth::~Sephiroth(){
-    std::cout << "El destructo de Sephiroth ha sido llamado" << std::endl;
+    std::cout << "Sephiroth (villano) destruido" << std::endl;
 }
 
 std::string Sephiroth::getPuesto(){
@@ -48,10 +47,30 @@ void Sephiroth::imprimir_personaje(){
 
 void Sephiroth::atacar(Personaje* objetivo){
     int danio = ataque; 
-    if (puesto == "comandante"){
-        danio += 5;
+    std::string puest;
+    bool correcto = true;
+
+    while (correcto){
+        std::cout << "Dime el puesto que tienes, las opciones son:\ncomandante\nlider supremo\ngeneral\nsicario\nteniente\nDame el puesto de tu sephiroth: ";
+        std::getline(std::cin, puest);
+        setPuesto(puest);
+        if (puesto == "comandante"){
+            danio += 5;
+        } else if(puesto == "lider supremo"){
+            danio += 10;
+        } else if (puesto == "general"){
+            danio += 4;
+        } else if(puesto == "teniente"){
+            danio += 2;
+        } else{
+            std::cout << "Inserta un valor correcto" << std::endl;
+            break;
+            system("cls");
+        }
+        objetivo->recibirDanio(danio);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
+        break;
     }
-    objetivo->recibirDanio(danio);
 }
 
 void Sephiroth::recibirDanio(int danio){
@@ -64,5 +83,6 @@ void Sephiroth::recibirDanio(int danio){
 void Sephiroth::mostrarEstado() {
     std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Puesto:" << puesto << std::endl;
 }
+
 
 #endif

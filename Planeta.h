@@ -2,7 +2,8 @@
 #define PLANETA_
 #include <iostream>
 #include <string>
-#include <random>
+#include <cstdlib>
+#include <stdio.h>
 #include "Personaje.h"
 #include "Enigma.h"
 
@@ -10,11 +11,11 @@ class Planeta{
     private: 
         std::string nombre;
         std::string historia;
-        Personaje* personajes[2];
+        Personaje* personajes[4];
         Enigma enigma;
     public: 
         Planeta();
-        Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Enigma enig);
+        Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4,Enigma enig);
         ~Planeta();
         std::string getNombre();
         std::string getHist();
@@ -23,19 +24,23 @@ class Planeta{
         void setHist(std::string hist);
         void setEnignma(Enigma& enig);
         void mostrarEstado();
-        void simularCombate(Personaje* p1, Personaje* p2);
+        void simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig);
+        void agregarPersonaje(Personaje* p1);
+        Personaje* buscarPersonaje(std::string nom1);
 };
 
 Planeta::Planeta(){
     nombre = "Aura";
     historia = "planeta desconocido hasta 1849";
 }
-Planeta::Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Enigma enig){
+Planeta::Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig){
     nombre = nom;
     historia = hist;
     enigma = enig;
     personajes[0] = p1;
     personajes[1] = p2;
+    personajes[2] = p3;
+    personajes[3] = p4;
 }
 Planeta::~Planeta() {
     for (int i = 0; i < 2; ++i) {
@@ -58,31 +63,69 @@ void Planeta::mostrarEstado(){
     std::cout << "Planeta: " << nombre << "\nHistoria: " << historia << "\nEnigma: " << enigma.getNombre() << std::endl;
 }
 
-void Planeta::simularCombate(Personaje* p1, Personaje* p2){
-    std::cout << "Inicio del combate:" << std::endl;
-    srand(static_cast<unsigned int>(time(0))); // Inicializar la semilla para números aleatorios
+void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig){
+    bool correcto = true; 
+    std::string resp;
+    Personaje* ganador = nullptr; 
+    while(correcto){
+    // Randomly select an attacker
+        int turno = rand() % 4;
+        // Randomly select a target that is not the attacker
+        int objetivo;
+        do {
+            objetivo = rand() % 4;
+            personajes[turno]->atacar(personajes[objetivo]);
+            for (int i = 0; i < 4; i++) {
+                personajes[i]->mostrarEstado();
+            }
+        } while (objetivo != turno);
 
-    while (p1->getSalud() > 0 && p2->getSalud() > 0) {
-        int turno = rand() % 2; // Decide aleatoriamente quién ataca primero
 
-        if (turno == 0) {
-            p1->atacar(p2);
+
+        std::cout << "El nombre del enigma es: " << enig.getNombre() << std::endl;
+        std::cout << enig.getPregunta() << std::endl;
+        std::cout << "Dame la respuesta del enigma: " << std::endl;
+        std::getline(std::cin, resp);
+        if (resp == enig.getRespuestaCorrecta()) {
+            std::cout << "Respuesta correcta!" << std::endl;
+            std::cout << "Fin del combate. " << std::endl;
+
+            ganador = personajes[0]; // Initialize ganador to the first character
+            for (int i = 1; i < 4; i++) {
+                if (personajes[i]->getSalud() > ganador->getSalud()) {
+                    ganador = personajes[i];
+                }
+            }
+            std::cout << "El personaje ganador es: " << ganador->getNom() << " con una salud de " << ganador->getSalud() << std::endl;
+            break; 
+
         } else {
-            p2->atacar(p1);
+            std::cout << "Sigue el combate :)" << std::endl;
         }
-
-        std::cout << "Estado despues del turno:" << std::endl;
-        p1->mostrarEstado();
-        p2->mostrarEstado();
-        std::cout << "-----------------------------" << std::endl;
-    }
-
-    if (p1->getSalud() <= 0) {
-        std::cout << p1->getNom() << " ha perdido el combate." << std::endl;
-    } else {
-        std::cout << p2->getNom() << " ha perdido el combate." << std::endl;
+        // Check if the combat should continue
+        for (int i = 0; i < 4; i++) {
+            if (personajes[i]->getSalud() <= 0) {
+                correcto = false;
+                break;
+            }
+        }
     }
 }
+
+
+void Planeta::agregarPersonaje(Personaje* p1){
+    int num_personajes;
+    if (num_personajes < 4) {
+        personajes[num_personajes] = p1;
+        num_personajes++;
+    } else {
+        std::cout << "No se pueden agregar más personajes, el arreglo está lleno." << std::endl;
+    }
+}
+
+
+
+
 
 
 

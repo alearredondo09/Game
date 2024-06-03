@@ -21,7 +21,7 @@ class Alienigena : public Personaje{
 };
 
 Alienigena::Alienigena(){
-    habilidad = " ";
+    habilidad = "veneno";
 }
 
 Alienigena::Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab): Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
@@ -34,7 +34,7 @@ Alienigena::Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _
     habilidad = hab;
 }
 Alienigena::~Alienigena(){
-    std::cout << "Destructor de Alienigena llamado" << std::endl;
+    std::cout << "Alienigena destruido" << std::endl;
 }
 
 std::string Alienigena::getHabilidad(){
@@ -55,11 +55,33 @@ void Alienigena::imprimir_personaje(){
 }
 
 void Alienigena::atacar(Personaje* objetivo){
-    int danio = ataque; 
-    if (habilidad == "veneno"){
-        danio += 7;
+    int danio = ataque;
+    std::string habi;
+    bool correcto = true;
+    while (!correcto) {
+        std::cout << "Dime la habilidad que tienes, las opciones son:\ntelepatia\nveneno\nlevitar\ncamuflaje\nDame la habilidad de tu alien: ";
+        std::getline(std::cin, habi);
+        setHabilidad(habi);
+
+        if (habilidad == "veneno") {
+            danio += 7;
+            correcto = true;
+        } else if (habilidad == "telepatia") {
+            danio += 6;
+            correcto = true;
+        } else if (habilidad == "levitar") {
+            danio += 9;
+            correcto = true;
+        } else if (habilidad == "camuflaje") {
+            danio += 4;
+            correcto = true;
+        } else {
+            std::cout << "Agrega una opcion valida." << std::endl;
+        }
+        objetivo->recibirDanio(danio);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
     }
-    objetivo->recibirDanio(danio);
+
 }
 
 void Alienigena::recibirDanio(int danio){
@@ -72,5 +94,6 @@ void Alienigena::recibirDanio(int danio){
 void Alienigena::mostrarEstado() {
     std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Habilidad:" << habilidad << std::endl;
 }
+
 
 #endif

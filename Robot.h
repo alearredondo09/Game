@@ -17,6 +17,7 @@ class Robot : public Personaje{
         void atacar(Personaje* objetivo); //funcion que permite que el personaje ataque
         void recibirDanio(int danio); // funcion que permite recibir danio
         void mostrarEstado();
+
 };
 
 Robot::Robot(){
@@ -27,7 +28,7 @@ Robot::Robot(std::string nom, int _edad, int _nivel, int _salud, int _ataque, in
 }
 
 Robot::~Robot(){
-    std::cout << "Destructor de Robot llamado" << std::endl;
+    std::cout << "Robot destruido" << std::endl;
 }
 
 std::string Robot::getHab(){
@@ -45,10 +46,31 @@ void Robot::imprimir_personaje(){
 
 void Robot::atacar(Personaje* objetivo){
     int danio = ataque; 
-    if (habilidad == "laser"){
-        danio += 5;
+    std::string habi;
+    bool correcto = true;
+
+    while (correcto){
+        std::cout << "Dime la habilidad que tienes, las opciones son:\ndesintegracion\nteletransportarse\ninvisibilidad\nescudo\nDame la habilidad de tu alien: ";
+        std::getline(std::cin, habi);
+        setHab(habi);
+        
+        if (habilidad == "desintegracion"){
+            danio += 5;
+        } else if(habilidad == "teletransportarse"){
+            danio += 4;
+        } else if(habilidad == "invisibilidad"){
+            danio += 8;
+        } else if(habilidad == "escudo"){
+            danio += 6;
+        } else{
+            std::cout << "Ingresa un valor valido" << std::endl;
+            break;
+            system("cls");
+        }
+        objetivo->recibirDanio(danio);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
+        break;
     }
-    objetivo->recibirDanio(danio);
 }
 
 void Robot::recibirDanio(int danio){
@@ -61,5 +83,6 @@ void Robot::recibirDanio(int danio){
 void Robot::mostrarEstado() {
     std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Habilidad:" << habilidad << std::endl;
 }
+
 
 #endif

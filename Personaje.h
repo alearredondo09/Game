@@ -22,7 +22,7 @@ class Personaje{
     public: 
         Personaje(); //constructor por default de mi clase Personaje
         Personaje(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa); // constructor parametrizado de mi clase Personaje
-        virtual ~Personaje(); //destructor 
+        virtual ~Personaje()=0; //destructor 
         std::string getNom(); // getter para nombre
         int getEdad(); // getter para edad
         int getNivel(); // getter para nivel
@@ -44,7 +44,7 @@ class Personaje{
 Personaje::Personaje(){
     nombre = "Anakin";
     edad = 27;
-    nivel = 100;
+    nivel = 5;
     salud = 10,
     ataque = 5; 
     defensa = 5;

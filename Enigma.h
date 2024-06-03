@@ -1,46 +1,58 @@
 #ifndef ENIGMA_H
 #define ENIGMA_H
+
 #include <iostream>
 #include <string>
 
-class Enigma{
-    private:
-        std::string nombre;
-        int puntaje;
+class Enigma {
+private:
+    std::string nombre;
+    std::string pregunta;
+    std::string respuesta_correcta;
 
-    public:
-
-        Enigma();
-        Enigma(std::string nom, int punt);
-        std::string getNombre();
-        int getPuntaje();
-        void setNom(std::string nom);
-        void setPunt(int punt);
-        void puntaje_adquirido(bool solucion);
+public:
+    Enigma();
+    Enigma(std::string nom, std::string preg, std::string resp);
+    std::string getNombre();
+    std::string getPregunta();
+    std::string getRespuestaCorrecta();
+    void setNombre(std::string nom);
+    void setPregunta(std::string pregunt);
+    void setRespuesta(std::string resp);
 };
 
-Enigma::Enigma(){
+Enigma::Enigma() {
     nombre = "fuego";
-    puntaje = 0;
+    pregunta = "Soy mas ligero que el aire, pero cientos de personas no pueden levantarme. ¿Que soy?";
+    respuesta_correcta = "burbuja";
 }
-Enigma::Enigma(std::string nom, int punt){
+
+Enigma::Enigma(std::string nom, std::string preg, std::string resp) {
     nombre = nom;
-    puntaje = punt;
+    pregunta = preg;
+    respuesta_correcta = resp;
 }
-std::string Enigma::getNombre(){
+
+std::string Enigma::getNombre() {
     return nombre;
 }
-int Enigma::getPuntaje(){
-    return puntaje;
+
+std::string Enigma::getPregunta() {
+    return pregunta;
 }
-void Enigma::puntaje_adquirido(bool solucion){
-    if (solucion){
-        int ventaja = 2;
-        puntaje += ventaja;
-        std::cout << "El puntaje es de " << puntaje << std::endl;
-    } else {
-        std::cout << "El puntaje es el mismo " << std::endl;
-    }
+
+std::string Enigma::getRespuestaCorrecta() {
+    return respuesta_correcta;
+}
+
+void Enigma::setNombre(std::string nom){
+    nombre = nom;
+}
+void Enigma::setPregunta(std::string pregunt){
+    pregunta = pregunt;
+}
+void Enigma::setRespuesta(std::string resp){
+    respuesta_correcta = resp;
 }
 
 #endif

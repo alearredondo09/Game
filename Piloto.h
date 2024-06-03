@@ -26,7 +26,7 @@ Piloto::Piloto(std::string nom, int _edad, int _nivel, int _salud, int _ataque, 
     vehiculo = _vehiculo;
 }
 Piloto::~Piloto(){
-    std::cout << "El destructor de piloto ha sido llamado. " << std::endl;
+    std::cout << "Piloto destruido" << std::endl;
 }
 std::string Piloto::getVehiculo(){
     return vehiculo;
@@ -40,10 +40,33 @@ void Piloto::imprimir_personaje(){
 }
 void Piloto::atacar(Personaje* objetivo){
     int danio = ataque; 
-    if (vehiculo == "nave espacial"){
-        danio += 5;
+    std::string veh;
+    bool correcto = true;
+
+    while (correcto){
+        std::cout << "Dime el vehiculo que tienes, las opciones son:\ncrucero\ntanque\ndron\nnave espacial\nspeeder\nDame el vehiculo de tu piloto: ";
+        std::getline(std::cin, veh);
+        setVehiculo(veh);
+        
+        if (vehiculo == "nave espacial"){
+            danio += 8;
+        } else if(vehiculo == "crucero"){
+            danio += 5;
+        } else if(vehiculo == "dron"){
+            danio += 3;
+        } else if(vehiculo == "speeder"){
+            danio += 6;
+        } else if (vehiculo == "tanque"){
+            danio+=7;
+        }else {
+            std::cout << "Ingresa una de las opciones anteriores." << std::endl;
+            break;
+            system("cls");
+        }
+        objetivo->recibirDanio(danio);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
+        break;
     }
-    objetivo->recibirDanio(danio);
 }
 
 void Piloto::recibirDanio(int danio){
@@ -56,4 +79,6 @@ void Piloto::recibirDanio(int danio){
 void Piloto::mostrarEstado() {
     std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Vehiculo:" << vehiculo << std::endl;
 }
+
+
 #endif
