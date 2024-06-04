@@ -45,7 +45,7 @@ Personaje::Personaje(){
     nombre = "Anakin";
     edad = 27;
     nivel = 5;
-    salud = 10,
+    salud = 50;
     ataque = 5; 
     defensa = 5;
 }
@@ -103,8 +103,6 @@ void Personaje::imprimir_personaje(){
     std::cout << "Nombre: " << nombre << "\n";
     std::cout << "Edad: " << edad << "\n";
 }
-
-
 
 
 

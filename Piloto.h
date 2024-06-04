@@ -47,7 +47,7 @@ void Piloto::atacar(Personaje* objetivo){
         std::cout << "Dime el vehiculo que tienes, las opciones son:\ncrucero\ntanque\ndron\nnave espacial\nspeeder\nDame el vehiculo de tu piloto: ";
         std::getline(std::cin, veh);
         setVehiculo(veh);
-        
+
         if (vehiculo == "nave espacial"){
             danio += 8;
         } else if(vehiculo == "crucero"){

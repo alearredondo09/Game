@@ -58,11 +58,10 @@ void Alienigena::atacar(Personaje* objetivo){
     int danio = ataque;
     std::string habi;
     bool correcto = true;
-    while (!correcto) {
+    while (correcto) {
         std::cout << "Dime la habilidad que tienes, las opciones son:\ntelepatia\nveneno\nlevitar\ncamuflaje\nDame la habilidad de tu alien: ";
         std::getline(std::cin, habi);
         setHabilidad(habi);
-
         if (habilidad == "veneno") {
             danio += 7;
             correcto = true;
@@ -76,12 +75,12 @@ void Alienigena::atacar(Personaje* objetivo){
             danio += 4;
             correcto = true;
         } else {
-            std::cout << "Agrega una opcion valida." << std::endl;
+            std::cout << "Agrega una opcion valida:" << std::endl;
         }
         objetivo->recibirDanio(danio);
         std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
+        break;        
     }
-
 }
 
 void Alienigena::recibirDanio(int danio){

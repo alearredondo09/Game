@@ -50,7 +50,7 @@ void Robot::atacar(Personaje* objetivo){
     bool correcto = true;
 
     while (correcto){
-        std::cout << "Dime la habilidad que tienes, las opciones son:\ndesintegracion\nteletransportarse\ninvisibilidad\nescudo\nDame la habilidad de tu alien: ";
+        std::cout << "Dime la habilidad que tienes, las opciones son:\ndesintegracion\nteletransportarse\ninvisibilidad\nescudo\nDame la habilidad de tu robot: ";
         std::getline(std::cin, habi);
         setHab(habi);
         
