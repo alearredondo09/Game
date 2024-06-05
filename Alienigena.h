@@ -9,8 +9,7 @@ class Alienigena : public Personaje{
         std::string habilidad;
     public: 
         Alienigena(); // constructor default
-        Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
-        ~Alienigena();
+        Alienigena(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
         std::string getHabilidad();
         void setHabilidad(std::string hab);
         void imprimir_personaje(); //imprime la informacion del personaje
@@ -24,17 +23,8 @@ Alienigena::Alienigena(){
     habilidad = "veneno";
 }
 
-Alienigena::Alienigena(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab): Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
-    nombre = nom;
-    edad = _edad; 
-    nivel = _nivel;
-    salud = _salud;
-    ataque = _ataque;
-    defensa = _defensa;
+Alienigena::Alienigena(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab): Personaje(nom, _nivel, _salud, _ataque){
     habilidad = hab;
-}
-Alienigena::~Alienigena(){
-    std::cout << "Alienigena destruido" << std::endl;
 }
 
 std::string Alienigena::getHabilidad(){
@@ -47,46 +37,37 @@ void Alienigena::setHabilidad(std::string hab){
 
 void Alienigena::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "Nivel: " << nivel << "\n";
-    std::cout << "Salud: " << salud << "\n"; 
-    std::cout << "Ataque: " << ataque << "\n"; 
-    std::cout << "Defensas " << defensa << "\n";
     std::cout << "Habilidad " << habilidad << std::endl;
 }
 
 void Alienigena::atacar(Personaje* objetivo){
     int danio = ataque;
-    std::string habi;
-    bool correcto = true;
-    while (correcto) {
-        std::cout << "Dime la habilidad que tienes, las opciones son:\ntelepatia\nveneno\nlevitar\ncamuflaje\nDame la habilidad de tu alien: ";
-        std::getline(std::cin, habi);
-        setHabilidad(habi);
-        if (habilidad == "veneno") {
+    int habi;
+    while (true) {
+        std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para telepatia\nIngresa 2 veneno\nDame la habilidad de tu alien: ";
+        std::cin >> habi;
+        if (habi == 1) {
             danio += 7;
-            correcto = true;
-        } else if (habilidad == "telepatia") {
+            habilidad = "telepatia";
+            std::cout << habilidad;
+            break;
+        } else if (habi == 2) {
+            habilidad = "veneno";
             danio += 6;
-            correcto = true;
-        } else if (habilidad == "levitar") {
-            danio += 9;
-            correcto = true;
-        } else if (habilidad == "camuflaje") {
-            danio += 4;
-            correcto = true;
+            break;
         } else {
             std::cout << "Agrega una opcion valida:" << std::endl;
-        }
-        objetivo->recibirDanio(danio);
-        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
-        break;        
+        }      
     }
+        objetivo->recibirDanio(danio);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;  
 }
 
 void Alienigena::recibirDanio(int danio){
     int daniioRecibido = danio - defensa;
     if (daniioRecibido > 0){
         salud -= daniioRecibido;
+        
     }
 }
 
