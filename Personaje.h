@@ -1,12 +1,17 @@
+/*  
+*  Proyecto Juego_Rol clase Personaje
+*  Alejandra Arredondo
+*  A01711434
+*  05/06/2024
+*  La clase Personaje tiene una relación de tipo herencia con las clases Alienigena, Robot, Piloto y Sephiroth, siendo esta clase
+*  padre de mis clases anteriormente mencionadas. 
+* 
+*  Se establecesn metodos que se sobreescibiran en las clases hijas y a su vez, sus atributos se usarán en las clases hijas. 
+*/
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 #include <iostream>
 #include <string>
-
-/*
-Clase creada el 10 de Mayo
-Esta clase es la clase padre que va a heredar sus atributos y metodos a las clases hijas
-*/
 
 class Personaje{
     protected: 
@@ -50,6 +55,7 @@ Personaje::Personaje(std::string nom, int _nivel, int _salud, int _ataque){
     ataque = _ataque;
 }
 
+// destructor de personaje
 Personaje::~Personaje() {
     std::cout << "Personaje elimindado." << std::endl;
 }
@@ -79,6 +85,12 @@ void Personaje::setAtaque(int _ataque){
     ataque = _ataque;
 }
 
+/*
+*  imprimir_personaje() es un metodo cuya función será imprimir los atributos de mi personaje 
+*  estos atributos son nombre, nivel, salud, ataque y defensa. Este método sera sobrescribido en sus clases hijas. 
+* @param N/A
+* @return N/A
+*/
 void Personaje::imprimir_personaje(){
     std::cout << "Nombre: " << nombre << "\n";
     std::cout << "Nivel: " << nivel << "\n";

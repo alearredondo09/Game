@@ -8,13 +8,6 @@
 #include "Enigma.h"
 
 int main() {
-    Robot* robot1 = new Robot();
-    Alienigena* alien = new Alienigena() ;
-    Piloto* poe = new Piloto();
-    Sephiroth* sephiroth = new Sephiroth();
-    Enigma enig("Enigma del fuego", "Soy mas ligero que el aire, pero cientos de personas no pueden levantarme. Que soy?", "burbuja");
-    Planeta aura;
-    bool ciclo = true;
     int jugar, eleccion_batalla;
     int edad_robot, edad_alien, edad_piloto, edad_sephiroth;
     std::string nombre_robot, nombre_piloto, nombre_alien, nombre_sephiroth, nombre_planeta;
@@ -23,7 +16,14 @@ int main() {
     std::string puesto;
     std::string personaje1;
     std::string personaje2;
-    while (ciclo){
+    Robot* robot1 = new Robot();
+    Alienigena* alien = new Alienigena() ;
+    Piloto* poe = new Piloto();
+    Sephiroth* sephiroth = new Sephiroth();
+    Enigma enig("Enigma del fuego", "Soy mas ligero que el aire, pero cientos de personas no pueden levantarme. Que soy?", "burbuja");
+    Planeta aura("aura"," Descubierto en 1998", robot1, alien, poe, sephiroth, enig);
+
+    while (true){
         std::cout << "Este juego es totalmente ficticio, esta bajo tu responsabilidad si lo juegas o no.\nIngresa 0 si no quieres jugar\nIngresa 1 si quieres jugar" << std::endl;
         std::cin >> jugar;
         if (jugar == 0) {
@@ -63,6 +63,7 @@ int main() {
             
             aura.simularCombate(robot1, alien,poe, sephiroth, enig);
 
+            break;
             delete robot1; // Libera la memoria después de usar el objeto
             delete alien; // Libera la memoria después de usar el objeto
             delete poe; // Libera la memoria después de usar el objeto

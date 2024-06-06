@@ -1,3 +1,12 @@
+/*
+*  Proyecto Juego_Rol clase Enigma
+*  Alejandra Arredondo
+*  A01711434
+*  05/06/2024
+*  La clase Enigma es una clase de tipo composición con mi clase Planeta, está clase crea objetos de tipo Enigma
+* el cual me permite crear un enigma que tenga tanto su nombre, pregunta como su respuesta.
+* 
+*/
 #ifndef ENIGMA_H
 #define ENIGMA_H
 
@@ -6,19 +15,20 @@
 
 class Enigma {
 private:
+    // atributos
     std::string nombre;
     std::string pregunta;
     std::string respuesta_correcta;
 
 public:
-    Enigma();
-    Enigma(std::string nom, std::string preg, std::string resp);
-    std::string getNombre();
-    std::string getPregunta();
-    std::string getRespuestaCorrecta();
-    void setNombre(std::string nom);
-    void setPregunta(std::string pregunt);
-    void setRespuesta(std::string resp);
+    Enigma(); // constructor por default 
+    Enigma(std::string nom, std::string preg, std::string resp); // constructor parametrizado
+    std::string getNombre(); // getter de nombre
+    std::string getPregunta(); // getter de pregunta
+    std::string getRespuestaCorrecta(); // getter de respuesta
+    void setNombre(std::string nom); // setter de nombre
+    void setPregunta(std::string pregunt); // setter de pregunta
+    void setRespuesta(std::string resp); // setter de respuesta
 };
 
 Enigma::Enigma() {

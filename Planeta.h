@@ -1,3 +1,13 @@
+/*
+*  Proyecto Juego_Rol clase Planeta
+*  Alejandra Arredondo
+*  A01711434
+*  05/06/2024
+*  La clase Planeta es una clase de tipo composición con mis clases Enigma y de tipo Personaje, está clase crea objetos de tipo Planeta
+* el cual me permite establecer el combate a través de los personajes que se crean para componer a mi clase planeta
+* esta clase tendrá metodos que me permitirán establecer el combate , mostrar el estado de mi planeta y agregar personajes a mi clase. 
+* 
+*/
 #ifndef PLANETA_
 #define PLANETA_
 #include <iostream>
@@ -8,23 +18,24 @@
 
 class Planeta{
     private: 
+        // atributos y objetos que conforman la composición a mi clase Planeta
         std::string nombre;
         std::string historia;
         Personaje* personajes[4];
         Enigma enigma;
     public: 
-        Planeta();
-        Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4,Enigma enig);
-        ~Planeta();
-        std::string getNombre();
-        std::string getHist();
-        Enigma getEnigma();
-        void setNombre(std::string nom);
-        void setHist(std::string hist);
-        void setEnignma(Enigma& enig);
-        void mostrarEstado();
-        void simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* villano, Enigma enig);
-        void agregarPersonaje(int num_personaje, Personaje* p1);
+        Planeta(); // constructor por default
+        Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4,Enigma enig); // constructor parametrizado
+        ~Planeta(); // destructor de planeta
+        std::string getNombre(); // getter de nombre
+        std::string getHist(); // getter de historia
+        Enigma getEnigma(); // getter de enigma
+        void setNombre(std::string nom); // setter de  nombre
+        void setHist(std::string hist); // setter de historia
+        void setEnignma(Enigma& enig); // setter de enigma
+        void mostrarEstado(); // metodo para mostrar el estado del planeta
+        void simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* villano, Enigma enig); // metodo para simular el combate entre los personajes
+        void agregarPersonaje(int num_personaje, Personaje* p1); // metodo para agregar personajes al arreglo de personajes
 };
 
 Planeta::Planeta(){
@@ -57,10 +68,15 @@ void Planeta::setHist(std::string hist){historia = hist;}
 
 void Planeta::setEnignma(Enigma& enig){enigma = enig;}
 
-void Planeta::mostrarEstado(){
-    std::cout << "Planeta: " << nombre << "\nHistoria: " << historia << "\nEnigma: " << enigma.getNombre() << std::endl;
-}
-
+/*
+*  simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* villano, Enigma enig)
+*  
+* Este metodo obtiene cuatro personajes y un enigma, para poder atacar, a su vez, pide una respuesta para el enigma creado, si este es correcto, 
+* el combate termina, sin embargo, si no es adivinada la respuesta, el combate seguirá, hasta que alguno de los personajes ya no tenga salud y muera. 
+*
+* @param recibe apuntadores de personaje que son creados y a su vez recibe un enigma que debera ser resuelto
+* @return N/A
+*/
 void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* villano, Enigma enig){
     bool correcto = true;
     int ataque;
@@ -69,7 +85,7 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         // Primer personaje ataca al villano
         std::cout << "Primer personaje en atacar: " << p1->getNom() << std::endl;
         p1->atacar(villano);
-        std::cout << "La salud del villano es: " << villano->getSalud() << std::endl;
+        villano->mostrarEstado();
         if (villano->getSalud() <= 0) {
             std::cout << villano->getNom() << " ha sido derrotado." << std::endl;
             break;
@@ -78,7 +94,7 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         // Segundo personaje ataca al villano
         std::cout << "Segundo personaje en atacar: " << p2->getNom() << std::endl;
         p2->atacar(villano);
-        std::cout << "La salud del villano es: " << villano->getSalud() << std::endl;
+        villano->mostrarEstado();
         if (villano->getSalud() <= 0) {
             std::cout << villano->getNom() << " ha sido derrotado." << std::endl;
             break;
@@ -87,7 +103,7 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         // Tercer personaje ataca al villano
         std::cout << "Tercer personaje en atacar: " << p3->getNom() << std::endl;
         p3->atacar(villano);
-        std::cout <<"La salud del villano es : " << villano->getSalud() << std::endl;
+        villano->mostrarEstado();
         if (villano->getSalud() <= 0) {
             std::cout << villano->getNom() << " ha sido derrotado." << std::endl;
             break;
@@ -103,13 +119,13 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
 
         if (ataque == 1) {
             villano->atacar(p1);
-            std::cout << "La salud de" << p1->getNom() << " es: " << p1->getSalud() << std::endl;
+            p1->mostrarEstado();
         } else if (ataque == 2) {
             villano->atacar(p2);
-            std::cout << "La salud de " << p2->getNom() << " es: " << p2->getSalud() << std::endl;
+            p2->mostrarEstado();
         } else if (ataque == 3) {
             villano->atacar(p3);
-            std::cout << "La salud de " << p3->getNom() << " es: " << p3->getSalud() << std::endl;
+            p3->mostrarEstado();
         } else {
             std::cout << "Debes elegir uno de los números anteriores " << std::endl;
         }
@@ -150,6 +166,13 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
     }
 }
 
+/*
+* agregarPersonaje() este metodo  agrega los personajes creadosa arreglo de apuntadores de tipo Personaje y los pone en ciertas posiciones del arreglo
+* 
+* @param num de personaje, la posición y el apuntador de personaje que se debe de agregar
+* @return N/A
+*/
+
 void Planeta::agregarPersonaje(int num_personaje, Personaje* p1){
     if (num_personaje < 4) {
         personajes[num_personaje] = p1;
@@ -157,6 +180,12 @@ void Planeta::agregarPersonaje(int num_personaje, Personaje* p1){
         std::cout << "No se pueden agregar más personajes, el arreglo está lleno." << std::endl;
     }
 }
+
+void Planeta::mostrarEstado(){
+    std::cout << "Planeta: " << nombre << "\nHistoria: " << historia << "\nEnigma: " << enigma.getNombre() << std::endl;
+}
+
+
 
 
 
