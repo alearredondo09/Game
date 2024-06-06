@@ -94,13 +94,12 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         }
 
         // Villano ataca a un personaje
-        std::cout << "Sephiroth, a que personaje quieres atacar?" << std::endl;
+        std::cout << villano->getNom() << " a que personaje quieres atacar?" << std::endl;
         std::cout << "Los personajes que puedes atacar son: " << std::endl;
         std::cout << "Ingresa 1 si quieres atacar a: " << p1->getNom() << std::endl;
         std::cout << "Ingresa 2 si quieres atacar a: " << p2->getNom() << std::endl;
         std::cout << "Ingresa 3 si quieres atacar a: " << p3->getNom() << std::endl;
         std::cin >> ataque;
-        std::cin.ignore();
 
         if (ataque == 1) {
             villano->atacar(p1);
@@ -131,13 +130,14 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         }
 
         // Intentar adivinar el enigma
+        std::cin.ignore();
         std::string respuesta;
-        std::cout << "Iintenta resolver el enigma: " << enig.getPregunta() << std::endl;
+        std::cout << "Intenta resolver el enigma: " << enig.getPregunta() << std::endl;
         std::cout << "Respuesta: ";
         std::getline(std::cin, respuesta);
 
         if (respuesta == enig.getRespuestaCorrecta()) {
-            std::cout <<"Ha resuelto el enigma correctamente. ¡El combate termina!" << std::endl;
+            std::cout <<"Ha resuelto el enigma correctamente. El combate termina!" << std::endl;
             correcto = false;
             break;
         } else {

@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cstdlib> // Necesario para usar la función system()
-#include <unistd.h>
+//#include <unistd.h>
 #include "Planeta.h"
 #include "Robot.h"
 #include "Alienigena.h"
@@ -33,45 +32,21 @@ int main() {
         } else if (jugar == 1) {
             std::cin.ignore(); // Ignora el salto de línea después de la lectura de jugar
             std::cout << "Debemos de crear los personajes a usar." << std::endl;
-            system("cls");
             std::cout << "Nuestro primer personaje es un robot. Dime cual es su nombre: ";
             std::getline(std::cin, nombre_robot);
             robot1->setNombre(nombre_robot);
-            system("cls");
-            std::cout << "Dame la edad de tu robot: ";
-            std::cin >>  edad_robot;
-            system("cls");
-            std::cin.ignore();
 
             std::cout << "Nuestro segundo personaje es un alienigena. Dime cual es su nombre: ";
             std::getline(std::cin, nombre_alien);
             alien -> setNombre(nombre_alien);
-            system("cls");
-            std::cout << "Dame la edad de tu alien: ";
-            std::cin >> edad_alien;
-            alien -> setEdad(edad_alien);
-            std::cin.ignore();
-            system("cls");
 
             std::cout << "Nuestro tercer personaje es un piloto. Dime cual es su nombre: ";
             std::getline(std::cin, nombre_piloto);
             poe -> setNombre(nombre_piloto);
-            system("cls");
-            std::cout << "Dame la edad de tu piloto: ";
-            std::cin >> edad_piloto;
-            poe -> setEdad(edad_piloto);
-            std::cin.ignore();
-            system("cls");
 
             std::cout << "Nuestro cuarto personaje es un villano. Dime cual es su nombre: ";
             std::getline(std::cin, nombre_sephiroth);
             sephiroth -> setNombre(nombre_sephiroth);
-            system("cls");
-            std::cout << "Dame la edad de tu villano: ";
-            std::cin >> edad_sephiroth;
-            sephiroth -> setEdad(edad_sephiroth);
-            std::cin.ignore();
-            system("cls");
 
             std::cout << "Dame el nombre del planeta: ";
             std::getline(std::cin, nombre_planeta);
@@ -80,12 +55,11 @@ int main() {
             aura.agregarPersonaje(1, alien);
             aura.agregarPersonaje(2, poe);
             aura.agregarPersonaje(3, sephiroth);
-            system("cls");
 
             std::cout << "Explicacion del juego: " << std::endl;
-            std::cout << "El juego consiste en utilizar a tus personajes que acabas de crear para atacar a sephiroth (villano). " << std::endl;
+            std::cout << "El juego consiste en utilizar a tus personajes que acabas de crear para atacar a " << sephiroth->getNom() << " ." << std::endl;
             std::cout << "La rutina es utilizar las acciones que te indica que le pertenece a cada personaje y asi atacar" << std::endl;
-            std::cout << "Despues de atacar tendras que adivinar el enigma, si logras adivinarlo, el combate se acaba, sino seguiras hasta que se termine el combate. " << std::endl;
+            std::cout << "Despues de atacar tendras que adivinar el enigma, si logras adivinarlo, el combate se acaba, sino seguiras hasta adivinar el enigma o que tu salud se acabe. " << std::endl;
             
             aura.simularCombate(robot1, alien,poe, sephiroth, enig);
 

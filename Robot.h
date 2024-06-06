@@ -9,8 +9,7 @@ class Robot : public Personaje{
         std::string habilidad; 
     public: 
         Robot();
-        Robot(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab);
-        ~Robot();
+        Robot(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab);
         std::string getHab();
         void setHab(std::string hab);
         void imprimir_personaje(); //imprime la informacion del personaje
@@ -23,12 +22,8 @@ class Robot : public Personaje{
 Robot::Robot(){
     habilidad = " ";
 }
-Robot::Robot(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string hab) : Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
+Robot::Robot(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab) : Personaje(nom,  _nivel, _salud, _ataque){
     habilidad = hab;
-}
-
-Robot::~Robot(){
-    std::cout << "Robot destruido" << std::endl;
 }
 
 std::string Robot::getHab(){
@@ -45,38 +40,34 @@ void Robot::imprimir_personaje(){
 }
 
 void Robot::atacar(Personaje* objetivo){
-    int danio = ataque; 
-    std::string habi;
-    bool correcto = true;
+    int opcion;
+    while (true){
+        std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para desintegracion\nIngresa 2 teletransportarse\nDame la habilidad de tu robot: ";
+        std::cin >> opcion;
 
-    while (correcto){
-        std::cout << "Dime la habilidad que tienes, las opciones son:\ndesintegracion\nteletransportarse\ninvisibilidad\nescudo\nDame la habilidad de tu robot: ";
-        std::getline(std::cin, habi);
-        setHab(habi);
-        
-        if (habilidad == "desintegracion"){
-            danio += 5;
-        } else if(habilidad == "teletransportarse"){
-            danio += 4;
-        } else if(habilidad == "invisibilidad"){
-            danio += 8;
-        } else if(habilidad == "escudo"){
-            danio += 6;
+        if (opcion == 1){
+            setAtaque(5); 
+            habilidad = "desintegracion";
+            std::cout << habilidad << std::endl;
+            break;
+        } else if(opcion == 2){
+            setAtaque(5);
+            habilidad = "teletransportarse";
+            std::cout << habilidad << std::endl;
+            break;
         } else{
             std::cout << "Ingresa un valor valido" << std::endl;
-            break;
-            system("cls");
         }
-        objetivo->recibirDanio(danio);
-        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
-        break;
     }
+        objetivo->recibirDanio(ataque);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
 }
 
-void Robot::recibirDanio(int danio){
-    int daniioRecibido = danio - defensa;
-    if (daniioRecibido > 0){
-        salud -= daniioRecibido;
+void Robot::recibirDanio(int ataque){
+    int sal;
+    if (ataque > 0){
+        sal = salud - ataque;
+        setSalud(sal);
     }
 }
 

@@ -37,37 +37,36 @@ void Alienigena::setHabilidad(std::string hab){
 
 void Alienigena::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "Habilidad " << habilidad << std::endl;
+    std::cout << "Habilidad: " << habilidad << std::endl;
 }
 
 void Alienigena::atacar(Personaje* objetivo){
-    int danio = ataque;
     int habi;
     while (true) {
         std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para telepatia\nIngresa 2 veneno\nDame la habilidad de tu alien: ";
         std::cin >> habi;
         if (habi == 1) {
-            danio += 7;
+            setAtaque(7);
             habilidad = "telepatia";
             std::cout << habilidad;
             break;
         } else if (habi == 2) {
             habilidad = "veneno";
-            danio += 6;
+            setAtaque(8);
             break;
         } else {
             std::cout << "Agrega una opcion valida:" << std::endl;
         }      
     }
-        objetivo->recibirDanio(danio);
+        objetivo->recibirDanio(ataque);
         std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;  
 }
 
-void Alienigena::recibirDanio(int danio){
-    int daniioRecibido = danio - defensa;
-    if (daniioRecibido > 0){
-        salud -= daniioRecibido;
-        
+void Alienigena::recibirDanio(int ataque){
+    int sal;
+    if (ataque > 0){
+        sal = salud - ataque;
+        setSalud(sal);
     }
 }
 

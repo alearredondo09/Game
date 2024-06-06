@@ -9,8 +9,7 @@ class Piloto : public Personaje{
         std::string vehiculo;
     public: 
         Piloto();
-        Piloto(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo);
-        ~Piloto();
+        Piloto(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo);
         std::string getVehiculo();
         void setVehiculo(std::string _vehiculo);
         void imprimir_personaje(); //imprime la informacion del personaje        
@@ -20,14 +19,12 @@ class Piloto : public Personaje{
 };
 
 Piloto::Piloto(){
-    vehiculo = "nave espacial";
+    vehiculo = " ";
 }
-Piloto::Piloto(std::string nom, int _edad, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo) : Personaje(nom, _edad, _nivel, _salud, _ataque, _defensa){
+Piloto::Piloto(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo) : Personaje(nom, _nivel, _salud, _ataque){
     vehiculo = _vehiculo;
 }
-Piloto::~Piloto(){
-    std::cout << "Piloto destruido" << std::endl;
-}
+
 std::string Piloto::getVehiculo(){
     return vehiculo;
 }
@@ -39,40 +36,36 @@ void Piloto::imprimir_personaje(){
     std::cout << "El vehiculo de este personaje es: " << vehiculo << std::endl;
 }
 void Piloto::atacar(Personaje* objetivo){
-    int danio = ataque; 
-    std::string veh;
-    bool correcto = true;
+    while (true){
+        int opcion;
+        std::cout << "Dime el vehiculo que tienes, las opciones son:\nIngresa 1 para crucero\nIngresa 2 para tanque\nIngresa 3 para dron\nDame el vehiculo de tu piloto: ";
+        std::cin >> opcion;
 
-    while (correcto){
-        std::cout << "Dime el vehiculo que tienes, las opciones son:\ncrucero\ntanque\ndron\nnave espacial\nspeeder\nDame el vehiculo de tu piloto: ";
-        std::getline(std::cin, veh);
-        setVehiculo(veh);
-
-        if (vehiculo == "nave espacial"){
-            danio += 8;
-        } else if(vehiculo == "crucero"){
-            danio += 5;
-        } else if(vehiculo == "dron"){
-            danio += 3;
-        } else if(vehiculo == "speeder"){
-            danio += 6;
-        } else if (vehiculo == "tanque"){
-            danio+=7;
-        }else {
-            std::cout << "Ingresa una de las opciones anteriores." << std::endl;
+        if (opcion == 1){
+            setAtaque(3);
+            vehiculo = "crucero";
             break;
-            system("cls");
-        }
-        objetivo->recibirDanio(danio);
-        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
-        break;
+        } else if(opcion == 2){
+            setAtaque(5);
+            vehiculo = "tanque";
+            break;
+        } else if(opcion == 3){
+            setAtaque(4);
+            vehiculo = "dron";
+            break;
+        } else {
+            std::cout << "Ingresa una de las opciones anteriores." << std::endl;
+        }   
     }
+        objetivo->recibirDanio(ataque);
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
 }
 
-void Piloto::recibirDanio(int danio){
-    int daniioRecibido = danio - defensa;
-    if (daniioRecibido > 0){
-        salud -= daniioRecibido;
+void Piloto::recibirDanio(int ataque){
+    int sal;
+    if (ataque > 0){
+        sal = salud - ataque;
+        setSalud(sal);
     }
 }
 
