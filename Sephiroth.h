@@ -33,7 +33,7 @@ class Sephiroth : public Personaje{
 
 //
 Sephiroth::Sephiroth() : Personaje(){
-    puesto = " ";
+    puesto = "lider supremo";
     defensa = 3;
 }
 
@@ -65,7 +65,8 @@ void Sephiroth::setDefensa(int _defensa){
 */
 void Sephiroth::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "El puesto de este villano es " << puesto << std::endl;
+    std::cout << "El puesto de " << nombre << " es " << puesto << std::endl;
+    std::cout << "La defensa de " << nombre << " es: " << defensa << std::endl;
 }
 
 /*
@@ -87,10 +88,12 @@ void Sephiroth::atacar(Personaje* objetivo){
         if (opcion == 1){
             setAtaque(12);
             puesto = "comandante";
+            std::cout << "Tu puesto " << puesto << " le ha quitado 12 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else if(opcion == 2){
             setAtaque(15);
             puesto = "lider supremo";
+            std::cout << "Tu puesto " << puesto << " le ha quitado 15 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else{
             std::cout << "Inserta un valor correcto" << std::endl;
@@ -123,7 +126,7 @@ void Sephiroth::recibirDanio(int ataque){
 *  @return N/A
 */
 void Sephiroth::mostrarEstado() {
-    std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Puesto:" << puesto << std::endl;
+    std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Puesto: " << puesto << "\n\n" << std::endl;
 }
 
 

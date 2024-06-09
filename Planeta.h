@@ -36,11 +36,12 @@ class Planeta{
         void mostrarEstado(); // metodo para mostrar el estado del planeta
         void simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Personaje* villano, Enigma enig); // metodo para simular el combate entre los personajes
         void agregarPersonaje(int num_personaje, Personaje* p1); // metodo para agregar personajes al arreglo de personajes
+        void imprimirPersonajes();
 };
 
 Planeta::Planeta(){
     nombre = "Aura";
-    historia = "planeta desconocido hasta 1849";
+    historia = "planeta desconocido hasta 1849"; // mejorar la historia del planeta
 }
 Planeta::Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig){
     nombre = nom;
@@ -133,12 +134,15 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
         // Verificar si algún personaje ha sido derrotado
         if (p1->getSalud() <= 0) {
             std::cout << p1->getNom() << " ha sido derrotado." << std::endl;
+            break;
         }
         if (p2->getSalud() <= 0) {
             std::cout << p2->getNom() << " ha sido derrotado." << std::endl;
+            break;
         }
         if (p3->getSalud() <= 0) {
             std::cout << p3->getNom() << " ha sido derrotado." << std::endl;
+            break;
         }
         if (p1->getSalud() <= 0 && p2->getSalud() <= 0 && p3->getSalud() <= 0) {
             std::cout << "Todos los personajes han sido derrotados. Sephiroth gana el combate." << std::endl;
@@ -182,10 +186,20 @@ void Planeta::agregarPersonaje(int num_personaje, Personaje* p1){
 }
 
 void Planeta::mostrarEstado(){
-    std::cout << "Planeta: " << nombre << "\nHistoria: " << historia << "\nEnigma: " << enigma.getNombre() << std::endl;
+    std::cout << "El planeta tiene el nombre de: " << nombre << std::endl;
+    std::cout << "\nLa historia de este planeta es: " << historia << std::endl;
+    std::cout << "\nEl enigma que estaras adivinando se denomina: " << enigma.getNombre() << "\n\n" << std::endl;
 }
 
-
+/*
+*
+*/
+void Planeta::imprimirPersonajes(){
+    for (int i = 0; i < 4; i++){
+        personajes[i]->imprimir_personaje() ;
+        std::cout << "-----------------------------------------------------------------" << std::endl;
+    }
+}
 
 
 

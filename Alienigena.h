@@ -53,7 +53,7 @@ void Alienigena::setHabilidad(std::string hab){
 */
 void Alienigena::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "Habilidad: " << habilidad << std::endl;
+    std::cout << "La habilidad de " << nombre << " es: " << habilidad << std::endl;
 }
 
 /*
@@ -73,11 +73,13 @@ void Alienigena::atacar(Personaje* objetivo){
         if (habi == 1) {
             setAtaque(7);
             habilidad = "telepatia";
-            std::cout << habilidad;
+            std::cout << "La habilidad " << habilidad << " le acaba de restar 7 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else if (habi == 2) {
             habilidad = "veneno";
             setAtaque(8);
+            std::cout << "La habilidad " << habilidad << " le acaba de restar 8 puntos de salud a " << objetivo->getNom() << std::endl;
+
             break;
         } else {
             std::cout << "Agrega una opcion valida:" << std::endl;

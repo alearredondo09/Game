@@ -30,7 +30,7 @@ class Robot : public Personaje{
 };
 
 Robot::Robot(){
-    habilidad = " ";
+    habilidad = " teletransportarse ";
 }
 Robot::Robot(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab) : Personaje(nom,  _nivel, _salud, _ataque){
     habilidad = hab;
@@ -53,7 +53,7 @@ void Robot::setHab(std::string hab){
 */
 void Robot::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "Habilidad: " << habilidad << std::endl;
+    std::cout << "La habilidad de " << nombre << " es: " << habilidad << std::endl;
 }
 
 /*
@@ -67,18 +67,19 @@ void Robot::imprimir_personaje(){
 void Robot::atacar(Personaje* objetivo){
     int opcion;
     while (true){
-        std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para desintegracion\nIngresa 2 teletransportarse\nDame la habilidad de tu robot: ";
+        std::cout << "Dime la habilidad que tienes, las opciones son:" ;
+        std::cout << "\nIngresa 1 para desintegracion\nIngresa 2 teletransportarse\nDame la habilidad de tu robot: ";
         std::cin >> opcion;
 
         if (opcion == 1){
             setAtaque(5); 
             habilidad = "desintegracion";
-            std::cout << habilidad << std::endl;
+            std::cout << "tu habilidad " << habilidad << " le resto 5 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else if(opcion == 2){
             setAtaque(5);
             habilidad = "teletransportarse";
-            std::cout << habilidad << std::endl;
+            std::cout << "La habilidad " << habilidad << " le acaba de restar 5 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else{
             std::cout << "Ingresa un valor valido" << std::endl;

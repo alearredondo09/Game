@@ -30,7 +30,7 @@ class Piloto : public Personaje{
 };
 
 Piloto::Piloto(){
-    vehiculo = " ";
+    vehiculo = "dron";
 }
 Piloto::Piloto(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo) : Personaje(nom, _nivel, _salud, _ataque){
     vehiculo = _vehiculo;
@@ -52,7 +52,7 @@ void Piloto::setVehiculo(std::string _vehiculo){
 */
 void Piloto::imprimir_personaje(){
     Personaje::imprimir_personaje();
-    std::cout << "El vehiculo de este personaje es: " << getVehiculo() << std::endl;
+    std::cout << "El vehiculo de" << nombre << " es: " << vehiculo << std::endl;
 }
 
 /*
@@ -73,14 +73,17 @@ void Piloto::atacar(Personaje* objetivo){
         if (opcion == 1){
             setAtaque(3);
             vehiculo = "crucero";
+            std::cout << "Tu vehiculo " << vehiculo << " le ha restado 3 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else if(opcion == 2){
             setAtaque(5);
             vehiculo = "tanque";
+            std::cout << "Tu vehiculo " << vehiculo << " le ha restado 5 puntos de salud a " << objetivo->getNom() << std::endl;
             break;
         } else if(opcion == 3){
             setAtaque(4);
             vehiculo = "dron";
+            std::cout << "Tu vehiculo " << vehiculo << " le ha restado 4 puntos de salud a " << objetivo->getNom() << std::endl;            
             break;
         } else {
             std::cout << "Ingresa una de las opciones anteriores." << std::endl;
@@ -113,7 +116,7 @@ void Piloto::recibirDanio(int ataque){
 *  @return N/A
 */
 void Piloto::mostrarEstado() {
-    std::cout << "Nombre: " << getNom() << ", Nivel: " << getNivel() << ", Salud: " << getSalud() << ", Vehiculo:" << getVehiculo() << std::endl;
+    std::cout << "Nombre: " << nombre << ", Nivel: " << nivel << ", Salud: " << salud << ", Vehiculo:" << vehiculo << std::endl;
 }
 
 
