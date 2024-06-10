@@ -10,9 +10,8 @@
 
 #ifndef PILOTO_H
 #define PILOTO_H
-#include <iostream> 
-#include <string>
-#include "Personaje.h"
+#include <iostream>  // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Personaje.h" // incluye la clase Personaje
 
 class Piloto : public Personaje{
     private: 
@@ -67,7 +66,8 @@ void Piloto::imprimir_personaje(){
 void Piloto::atacar(Personaje* objetivo){
     while (true){
         int opcion;
-        std::cout << "Dime el vehiculo que tienes, las opciones son:\nIngresa 1 para crucero\nIngresa 2 para tanque\nIngresa 3 para dron\nDame el vehiculo de tu piloto: ";
+        std::cout << "Dime el vehiculo que tienes, las opciones son:\nIngresa 1 para crucero "; 
+        std::cout << "\nIngresa 2 para tanque\nIngresa 3 para dron\nDame el vehiculo de " << nombre << " : ";
         std::cin >> opcion;
 
         if (opcion == 1){
@@ -90,7 +90,7 @@ void Piloto::atacar(Personaje* objetivo){
         }   
     }
         objetivo->recibirDanio(ataque);
-        std::cout << getNom() << " ataca a " << objetivo->getNom() << std::endl;
+        std::cout << nombre << " ataca a " << objetivo->getNom() << std::endl;
 }
 
 /*

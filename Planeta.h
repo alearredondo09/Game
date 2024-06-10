@@ -10,15 +10,13 @@
 */
 #ifndef PLANETA_
 #define PLANETA_
-#include <iostream>
-#include <string>
-#include <random>
-#include "Personaje.h"
-#include "Enigma.h"
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Personaje.h" // incluye la clase personaje
+#include "Enigma.h" // incluye la clase enigma
 
 class Planeta{
     private: 
-        // atributos y objetos que conforman la composición a mi clase Planeta
+        // atributos, arreglo y objeto que conforman la composición a mi clase Planeta
         std::string nombre;
         std::string historia;
         Personaje* personajes[4];
@@ -145,7 +143,7 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
             break;
         }
         if (p1->getSalud() <= 0 && p2->getSalud() <= 0 && p3->getSalud() <= 0) {
-            std::cout << "Todos los personajes han sido derrotados. Sephiroth gana el combate." << std::endl;
+            std::cout << "Todos los personajes han sido derrotados. " << villano->getNom() <<  " gana el combate." << std::endl;
             break;
         }
 
@@ -171,9 +169,10 @@ void Planeta::simularCombate(Personaje* p1, Personaje* p2, Personaje* p3, Person
 }
 
 /*
-* agregarPersonaje() este metodo  agrega los personajes creadosa arreglo de apuntadores de tipo Personaje y los pone en ciertas posiciones del arreglo
+* agregarPersonaje() este metodo  agrega los personajes creados en arreglo de apuntadores de tipo Personaje 
+* y los pone en ciertas posiciones del arreglo.
 * 
-* @param num de personaje, la posición y el apuntador de personaje que se debe de agregar
+* @param num de personaje, la posición y el apuntador de personaje que se debe de agregar.
 * @return N/A
 */
 
@@ -192,7 +191,10 @@ void Planeta::mostrarEstado(){
 }
 
 /*
-*
+* imprimirPersonajes() este metodo imprime todos los personajes que están en el arreglo de tipo Personaje
+* 
+* @param N/A
+* @return N/A
 */
 void Planeta::imprimirPersonajes(){
     for (int i = 0; i < 4; i++){

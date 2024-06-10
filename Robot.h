@@ -9,9 +9,8 @@
 */
 #ifndef ROBOT_H
 #define ROBOT_H
-#include <iostream>
-#include <string>
-#include "Personaje.h"
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Personaje.h" // incluye la clase Personaje
 
 class Robot : public Personaje{
     private: 
@@ -68,7 +67,7 @@ void Robot::atacar(Personaje* objetivo){
     int opcion;
     while (true){
         std::cout << "Dime la habilidad que tienes, las opciones son:" ;
-        std::cout << "\nIngresa 1 para desintegracion\nIngresa 2 teletransportarse\nDame la habilidad de tu robot: ";
+        std::cout << "\nIngresa 1 para desintegracion\nIngresa 2 teletransportarse\nDame la habilidad de " << nombre << " : ";
         std::cin >> opcion;
 
         if (opcion == 1){

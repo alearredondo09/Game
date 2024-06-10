@@ -8,9 +8,8 @@
 */
 #ifndef SEPHIROTH_H
 #define SEPHIROTH_H
-#include <iostream>
-#include <string>
-#include "Personaje.h"
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Personaje.h" // incluye la clase Personaje
 
 class Sephiroth : public Personaje{
     private:
@@ -83,7 +82,8 @@ void Sephiroth::atacar(Personaje* objetivo){
     int opcion;
     while (true){
         int opcion;
-        std::cout << "Dime el puesto que tienes, las opciones son:\nIngresa 1 para comandante\nIngresa 2 para lider supremo\nDame el puesto de tu sephiroth: ";
+        std::cout << "Dime el puesto que tienes, las opciones son:\nIngresa 1 para comandante";
+        std::cout << "\nIngresa 2 para lider supremo\nDame el puesto de " << nombre << " : ";
         std::cin >> opcion;
         if (opcion == 1){
             setAtaque(12);

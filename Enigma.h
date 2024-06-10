@@ -10,8 +10,7 @@
 #ifndef ENIGMA_H
 #define ENIGMA_H
 
-#include <iostream>
-#include <string>
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
 
 class Enigma {
 private:

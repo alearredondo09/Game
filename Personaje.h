@@ -10,8 +10,7 @@
 */
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
-#include <iostream>
-#include <string>
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
 
 class Personaje{
     protected: 

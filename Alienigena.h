@@ -9,9 +9,8 @@
 */
 #ifndef ALIENIGENA_H
 #define ALIENIGENA_H
-#include <iostream>
-#include <string>
-#include "Personaje.h"
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Personaje.h" // incluye la clase Personaje
 
 class Alienigena : public Personaje{
     private: 
@@ -68,7 +67,7 @@ void Alienigena::imprimir_personaje(){
 void Alienigena::atacar(Personaje* objetivo){
     int habi;
     while (true) {
-        std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para telepatia\nIngresa 2 veneno\nDame la habilidad de tu alien: ";
+        std::cout << "Dime la habilidad que tienes, las opciones son:\nIngresa 1 para telepatia\nIngresa 2 veneno\nDame la habilidad de " << nombre << " : ";
         std::cin >> habi;
         if (habi == 1) {
             setAtaque(7);

@@ -1,14 +1,13 @@
-#include <iostream>
-//#include <unistd.h>
-#include "Planeta.h"
-#include "Robot.h"
-#include "Alienigena.h"
-#include "Piloto.h"
-#include "Sephiroth.h"
-#include "Enigma.h"
+#include <iostream> // biblioteca que es utilizada para operaciones de entrada y salida
+#include "Planeta.h" // incluye la clase Planeta
+#include "Robot.h" // incluye la clase Robot
+#include "Alienigena.h" // incluye la clase Alienigena
+#include "Piloto.h" // incluye la clase Piloto
+#include "Sephiroth.h" // incluye la clase Sephiroth
+#include "Enigma.h" // incluye la clase Enigma
 
 int main() {
-    int jugar, eleccion_batalla, ver_planeta, ver_personajes_p, ver_personaje, ver_hist_juego;
+    long long jugar, eleccion_batalla, ver_planeta, ver_personajes_p, ver_personaje, ver_hist_juego;
     int edad_robot, edad_alien, edad_piloto, edad_sephiroth;
     std::string nombre_robot, nombre_piloto, nombre_alien, nombre_sephiroth, nombre_planeta;
     std::string habilidad_robot, habilidad_alien;
@@ -51,13 +50,16 @@ int main() {
 
             std::cout << "Dame el nombre del planeta: " << std::endl;
             std::getline(std::cin, nombre_planeta);
-            Planeta aura(nombre_planeta," Fue descubierto por exploradores humanos en el año 2300 durante una misión de búsqueda de planetas habitables. Los habitantes recibieron a los humanos con curiosidad y hospitalidad, compartiendo conocimientos y tecnología. Los dos pueblos han coexistido en paz, intercambiando cultura y explorando juntos los secretos del vasto universo.", robot1, alien, poe, sephiroth, enig);
+            std::string histo_planeta = "Fue descubierto por exploradores humanos en el anio 2300 durante una mision de busqueda de planetas habitables.\n"
+                                        "Los habitantes recibieron a los humanos con curiosidad y hospitalidad, compartiendo conocimientos y tecnologia.\n"
+                                        "Los dos pueblos han coexistido en paz, intercambiando cultura y explorando juntos los secretos del vasto universo.";
+            Planeta aura(nombre_planeta, histo_planeta, robot1, alien, poe, sephiroth, enig);
             aura.agregarPersonaje(0, robot1);
             aura.agregarPersonaje(1, alien);
             aura.agregarPersonaje(2, poe);
             aura.agregarPersonaje(3, sephiroth);
 
-            std::cout << "Te gustaria ver las caracteristicas de tu planeta?\nIngresa 1 para verlos. " << std::endl;
+            std::cout << "Te gustaria ver las caracteristicas de tu planeta?\nIngresa 1 para verlos\nIngresa 9 para no verlos\n " << std::endl;
             std::cin >> ver_planeta;
             
             if (ver_planeta == 1) {
@@ -76,7 +78,8 @@ int main() {
                 std::cout << "\n- Ingresa 1 para ver la informacion de " << robot1->getNom() << "." << std::endl;
                 std::cout << "\n- Ingresa 2 para ver la informacion de " << alien->getNom() << "." << std::endl;
                 std::cout << "\nIngresa 3 para ver la informacion de " << poe->getNom() << "." << std::endl;
-                std::cout << "\n- Ingresa 4 para ver la informacion de " << sephiroth->getNom() << "." << std::endl;
+                std::cout << "\n- Ingresa 4 para ver la informacion de " << sephiroth->getNom() << std::endl;
+                std::cout << "\n- Ingresa otro numero para no ver la informacion: " << std::endl;
                 std::cin >> ver_personaje;
                 if(ver_personaje == 0){
                     std::cout << "\n";
@@ -94,7 +97,7 @@ int main() {
                 }
             }
             
-            std::cout << "Te gustaria ver la historia del juego??\nIngresa 1 para verla :) = ";
+            std::cout << "Te gustaria ver la historia del juego??\nIngresa 0 para no ver la historia\nIngresa 1 para verla :) = ";
             std::cin >> ver_hist_juego;
             if (ver_hist_juego == 1){
                 //Historia del juego
@@ -110,7 +113,7 @@ int main() {
 
                 std::cout << "En este planeta, " << aura.getNombre() << ", un lugar de belleza incomparable y misterios antiguos, se ha desatado ";
                 std::cout << "una fuerza maligna\nque amenaza con destruir todo lo que conocen sus habitantes.\nLa profecia ancestral habla de un ser ";
-                std::cout << "llamado " << sephiroth->getNom() << ", un poderoso villano que ha despertado de su largo suenio y buscar dominar el planeta." << std::endl;
+                std::cout << "llamado " << sephiroth->getNom() << ", un poderoso villano que ha despertado de su largo suenio\n y buscar dominar el planeta." << std::endl;
                 std::cout << "Los valientes heroes se enfrentan sin precedentes.\n" << std::endl;
 
                 std::cout << poe->getNom() << ", un intrepido piloto humano que ha surcado los cielos de " << aura.getNombre() << " y conoce sus secretos ";
