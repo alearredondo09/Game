@@ -49,13 +49,13 @@ Comentarios del avance:
 Bien implementada la herencia, correcto uso de modificadores de acceso, sobrecarga y sobreescritura, el output de tu codigo es bastante confuso y hay algunos errores de syntaxis pues se muestra en la terminal por ejemplo /n, el correcto uso es \n
 
 ## Avenace 3: 
-Durante este avance realize la implementación de polimorfismo para mis metodos del videojuego, esto me permitió poder realizar de una mejor manera la implementación del metodo simular combate en mi clase Planeta. 
+- Durante este avance realize la implementación de polimorfismo para mis metodos del videojuego, esto me permitió poder realizar de una mejor manera la implementación del metodo simular combate en mi clase Planeta. 
 
 Comentarios del avance: 
 Bien implementado el polimorfismo
 
 ## Avance 4: 
-Para esta entrega, hice unas modificaciones bastantes notorias al codigo de mis clases, sin embargo la idea iba tomando forma, pude tener un mejor planteamiento de como hacer mi mini videojuego. 
+- Para esta entrega, hice unas modificaciones bastantes notorias al codigo de mis clases, sin embargo la idea iba tomando forma, pude tener un mejor planteamiento de como hacer mi mini videojuego. 
 
 - Agregaron/quitaron atributos
 - Documento el código
