@@ -109,7 +109,7 @@ int main() {
                 std::cout << "SALVAR SU PLANETA\n\n" << std::endl;
 
                 std::cout << "En este planeta, " << aura.getNombre() << ", un lugar de belleza incomparable y misterios antiguos, se ha desatado ";
-                std::cout << "una fuerza maligna que amenaza con destruir todo lo que conocen sus habitantes.\nLa profecia ancestral habla de un ser ";
+                std::cout << "una fuerza maligna\nque amenaza con destruir todo lo que conocen sus habitantes.\nLa profecia ancestral habla de un ser ";
                 std::cout << "llamado " << sephiroth->getNom() << ", un poderoso villano que ha despertado de su largo suenio y buscar dominar el planeta." << std::endl;
                 std::cout << "Los valientes heroes se enfrentan sin precedentes.\n" << std::endl;
 
