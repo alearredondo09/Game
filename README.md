@@ -34,7 +34,7 @@ El programa solo corren en la consola y está hecho con c++, por lo que para cor
 Este proyecto surgió entre una de varias ideas, sin embargo, fue la que elegí desarrollar por que creo que tiene la complejidad para que pueda aprender a detalle todos los temas y a su vez repasar muchos temas que he visto a lo largo de este año. También surge por mi amor de crear historias, aunque, hacer un juego de rol es algo nuevo para mí, lo disfrutaré a mi máximo. 
 
 ### Diagrama Uml 🏁 : 
-![Juego_Rol](https://github.com/alearredondo09/OOP_2/assets/103458261/ec37d0b7-6309-4f08-898f-9200e425ec0d)
+![Juego_Rol]![Juego_Rol](https://github.com/alearredondo09/OOP_2/assets/103458261/ca903d40-6c32-461a-b7c9-e84ea2982cf3)
 
 ### Correcciones: 
 ## Avance 1: 
