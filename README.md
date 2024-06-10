@@ -4,17 +4,17 @@
 ![Image](ç.jpg)
 Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo-distopico.jpg
 
-En un futuro distópico, la humanidad ha colonizado varios planetas en diferentes sistemas solares. La Tierra, ahora un lugar casi abandonado y decadente, es solo uno de los muchos mundos que conforman la galaxia conocida. En este contexto, un grupo de exploradores espaciales, reclutados de diferentes razas y planetas, se unen en una nave estelar llamada 'Aurora' para derrotar a sephiroth. 
+"En el planeta na antigua profecia ha comenzado a manifestarse. El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes heroes deben embarcarse en una epica aventura para salvar su hogar. 
 
 ### Funcionalidad ⚔️: 
-Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas y una historia personal que los defina. Lo que deberán hacer es resolver enígmas y acertijos y puede atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con la historia y no morir.
+Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas. Lo que deberán hacer es resolver enígmas y a su vez puede atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con el combate y no morir.
 
 ### Limitaciones: 
 Para que puedas tener una mejor interaccion con mi codigo, te dare unos trucos que deberás tener en cuenta a la hora de jugar con el juego. 
 - Lee detalladamente las intrucciones que te pide el programa, debido a que deberás ingresar algún numéro en el juego y posteriormente ingresar una palabra para adivinar el enigma (spoiler alert - si la tienes bien terminaras el combate)
 - El programa no incluye interfaz visual
 - Si seleccionas una opción que no esta integrada en el codigo, te volverá a pedir esa opción.
-- No ingresar ningun string con mayúsculas.
+- No ingresar ningun string con mayúsculas u espacios antes y después del string. 
 
 
 ### Consideraciones 🛸 : 
