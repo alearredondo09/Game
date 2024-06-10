@@ -36,6 +36,10 @@ Este proyecto surgió entre una de varias ideas, sin embargo, fue la que elegí 
 ### Diagrama Uml 🏁 : 
 ![Juego_Rol]!![image](https://github.com/alearredondo09/OOP_2/assets/103458261/51c94c7c-7e5e-4e4f-95cd-a5a3c4dc9ee9)
 
+### Documentación: 
+* Librerias:
+  - iostream:
+    https://www2.eii.uva.es/fund_inf/cpp/temas/3_entrada_salida/iostream.html
 
 ### Correcciones: 
 ## Avance 1: 
