@@ -25,7 +25,6 @@ class Personaje{
     public: 
         Personaje(); //constructor por default de mi clase Personaje
         Personaje(std::string nom, int _nivel, int _salud, int _ataque); // constructor parametrizado de mi clase Personaje
-        virtual ~Personaje()=0; //destructor 
         std::string getNom(); // getter para nombre
         int getNivel(); // getter para nivel
         int getSalud(); // getter para salud
@@ -52,11 +51,6 @@ Personaje::Personaje(std::string nom, int _nivel, int _salud, int _ataque){
     nivel = _nivel;
     salud = _salud;
     ataque = _ataque;
-}
-
-// destructor de personaje
-Personaje::~Personaje() {
-    std::cout << "Personaje elimindado." << std::endl;
 }
 
 std::string Personaje::getNom(){return nombre;}
