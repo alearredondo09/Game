@@ -8,7 +8,7 @@
 #include "Enigma.h"
 
 int main() {
-    int jugar, eleccion_batalla, ver_planeta, ver_personajes_p, ver_personaje;
+    int jugar, eleccion_batalla, ver_planeta, ver_personajes_p, ver_personaje, ver_hist_juego;
     int edad_robot, edad_alien, edad_piloto, edad_sephiroth;
     std::string nombre_robot, nombre_piloto, nombre_alien, nombre_sephiroth, nombre_planeta;
     std::string habilidad_robot, habilidad_alien;
@@ -51,7 +51,7 @@ int main() {
 
             std::cout << "Dame el nombre del planeta: " << std::endl;
             std::getline(std::cin, nombre_planeta);
-            Planeta aura(nombre_planeta," Descubierto en 1998", robot1, alien, poe, sephiroth, enig);
+            Planeta aura(nombre_planeta," Fue descubierto por exploradores humanos en el año 2300 durante una misión de búsqueda de planetas habitables. Los habitantes recibieron a los humanos con curiosidad y hospitalidad, compartiendo conocimientos y tecnología. Los dos pueblos han coexistido en paz, intercambiando cultura y explorando juntos los secretos del vasto universo.", robot1, alien, poe, sephiroth, enig);
             aura.agregarPersonaje(0, robot1);
             aura.agregarPersonaje(1, alien);
             aura.agregarPersonaje(2, poe);
@@ -93,7 +93,38 @@ int main() {
                     std::cout << "De acuerdo, proseguiremos con el juego." << std::endl;
                 }
             }
+            
+            std::cout << "Te gustaria ver la historia del juego??\nIngresa 1 para verla :) = ";
+            std::cin >> ver_hist_juego;
+            if (ver_hist_juego == 1){
+                //Historia del juego
+                std::cout << "----------------------------------------------------------------------------------------------- " << std::endl;
+                std::cout << "En el planeta " << aura.getNombre() << ", una antigua profecia ha comenzado a manifestarse. " << std::endl;
+                std::cout << "El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes\n"; 
+                std::cout << "heroes deben embarcarse en una epica aventura para salvar su hogar." << std::endl;
+                std::cout << "Entre ellos, se encuentran un humano piloto cuyo nombre es " << poe->getNom() << ". " ;
+                std::cout << "El segundo personaje en aparecer es un robot cuyo nombre es " << robot1->getNom() << ".\nDespues esta " << alien->getNom();
+                std::cout << " el cual es un alienigena, todos estos personajes estan dispuestos a combatir las amenazas,\ndescubriendo secretos, "; 
+                std::cout << " todo esto por un destino en comun..." << std::endl;
+                std::cout << "SALVAR SU PLANETA\n\n" << std::endl;
 
+                std::cout << "En este planeta, " << aura.getNombre() << ", un lugar de belleza incomparable y misterios antiguos, se ha desatado ";
+                std::cout << "una fuerza maligna que amenaza con destruir todo lo que conocen sus habitantes.\nLa profecia ancestral habla de un ser ";
+                std::cout << "llamado " << sephiroth->getNom() << ", un poderoso villano que ha despertado de su largo suenio y buscar dominar el planeta." << std::endl;
+                std::cout << "Los valientes heroes se enfrentan sin precedentes.\n" << std::endl;
+
+                std::cout << poe->getNom() << ", un intrepido piloto humano que ha surcado los cielos de " << aura.getNombre() << " y conoce sus secretos ";
+                std::cout << "mejor que nadie.\n" << robot1->getNom() << ", un robot de ultima generacion con habilidad de combate y estrategia ";
+                std::cout << "excepcionales.\n" << alien->getNom() << ", un misterioso alienigena con poderes cosmicos y una conexion profunda con los ";
+                std::cout << "misterios de universo.\n\nEstos cuatro heroes, junto con otros aliados que se uniran en el camino, deben descubrir los secretos";
+                std::cout << " antiguos de " << aura.getNombre() << ",\nreunir artefactos poderosos y fortalecer sus habilidades para enfrentar a " << sephiroth->getNom();
+                std::cout << " y su ejercito de criaturas oscuras.\n" << std::endl;
+                std::cout << "La batalla final la jugaras para poder derrotar a nuestro villano, deberas de ser sabio y derrotar a " << sephiroth->getNom() << std::endl;  
+            } else {
+                std::cout << "De acuerdo, contuniaremos..." << std::endl;
+            }
+
+            std::cout << "------------------------------------------------------------------------------------------------" << std::endl;
             std::cout << "\n\nExplicacion del juego: " << std::endl;
             std::cout << "El juego consiste en utilizar a tus personajes que acabas de crear para atacar a " << sephiroth->getNom() << " ." << std::endl;
             std::cout << "La rutina es utilizar las acciones que te indica que le pertenece a cada personaje y asi atacar" << std::endl;
