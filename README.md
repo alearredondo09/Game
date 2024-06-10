@@ -4,7 +4,7 @@
 ![Image](ç.jpg)
 Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo-distopico.jpg
 
-"En el planeta na antigua profecia ha comenzado a manifestarse. El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes heroes deben embarcarse en una epica aventura para salvar su hogar. 
+En el planeta na antigua profecia ha comenzado a manifestarse. El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes heroes deben embarcarse en una epica aventura para salvar su hogar. 
 
 ### Funcionalidad ⚔️: 
 Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas. Lo que deberán hacer es resolver enígmas y a su vez puede atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con el combate y no morir.
