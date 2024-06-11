@@ -139,12 +139,6 @@ int main() {
 
             break;
 
-            aura.~Planeta();
-            /*delete robot1; // Libera la memoria después de usar el objeto
-            delete alien; // Libera la memoria después de usar el objeto
-            delete poe; // Libera la memoria después de usar el objeto
-            delete sephiroth; // Libera la memoria después de usar el objet*/
-
         } else {
             std::cout << "Debes ingresar un valor valido" << std::endl;
             std::cout << "---------------------------------------------" << std::endl;
