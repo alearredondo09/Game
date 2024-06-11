@@ -8,7 +8,7 @@
 
 int main() {
     long long jugar, eleccion_batalla, ver_planeta, ver_personajes_p, ver_personaje, ver_hist_juego;
-    int edad_robot, edad_alien, edad_piloto, edad_sephiroth;
+    long long edad_robot, edad_alien, edad_piloto, edad_sephiroth;
     std::string nombre_robot, nombre_piloto, nombre_alien, nombre_sephiroth, nombre_planeta;
     std::string habilidad_robot, habilidad_alien;
     std::string vehiculo_piloto;
@@ -119,7 +119,7 @@ int main() {
                 std::cout << poe->getNom() << ", un intrepido piloto humano que ha surcado los cielos de " << aura.getNombre() << " y conoce sus secretos ";
                 std::cout << "mejor que nadie.\n" << robot1->getNom() << ", un robot de ultima generacion con habilidad de combate y estrategia ";
                 std::cout << "excepcionales.\n" << alien->getNom() << ", un misterioso alienigena con poderes cosmicos y una conexion profunda con los ";
-                std::cout << "misterios de universo.\n\nEstos cuatro heroes, junto con otros aliados que se uniran en el camino, deben descubrir los secretos";
+                std::cout << "misterios de universo.\n\nEstos tres heroes, junto con otros aliados que se uniran en el camino, deben descubrir los secretos";
                 std::cout << " antiguos de " << aura.getNombre() << ",\nreunir artefactos poderosos y fortalecer sus habilidades para enfrentar a " << sephiroth->getNom();
                 std::cout << " y su ejercito de criaturas oscuras.\n" << std::endl;
                 std::cout << "La batalla final la jugaras para poder derrotar a nuestro villano, deberas de ser sabio y derrotar a " << sephiroth->getNom() << std::endl;  
@@ -138,10 +138,12 @@ int main() {
             aura.simularCombate(robot1, alien,poe, sephiroth, enig);
 
             break;
-            delete robot1; // Libera la memoria después de usar el objeto
+
+            aura.~Planeta();
+            /*delete robot1; // Libera la memoria después de usar el objeto
             delete alien; // Libera la memoria después de usar el objeto
             delete poe; // Libera la memoria después de usar el objeto
-            delete sephiroth; // Libera la memoria después de usar el objeto
+            delete sephiroth; // Libera la memoria después de usar el objet*/
 
         } else {
             std::cout << "Debes ingresar un valor valido" << std::endl;

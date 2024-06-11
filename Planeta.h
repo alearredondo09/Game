@@ -19,7 +19,7 @@ class Planeta{
         // atributos, arreglo y objeto que conforman la composición a mi clase Planeta
         std::string nombre;
         std::string historia;
-        Personaje* personajes[4];
+        Personaje* personajes[4]; // este arreglo guarda objetos de las clases hijas de mi clase tipo Personaje 
         Enigma enigma;
     public: 
         Planeta(); // constructor por default
@@ -41,6 +41,7 @@ Planeta::Planeta(){
     nombre = "Aura";
     historia = "planeta desconocido hasta 1849"; // mejorar la historia del planeta
 }
+
 Planeta::Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig){
     nombre = nom;
     historia = hist;
