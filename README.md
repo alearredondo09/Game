@@ -7,13 +7,13 @@ Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo
 En el planeta na antigua profecia ha comenzado a manifestarse. El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes heroes deben embarcarse en una epica aventura para salvar su hogar. 
 
 ### Funcionalidad ⚔️: 
-Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas. Lo que deberán hacer es resolver enígmas y a su vez puede atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con el combate y no morir.
+Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas. Lo que deberán hacer es resolver enígmas y a su vez pueden atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con el combate y no morir o al no adivinar de manera correcta el enigma
 
 ### Limitaciones: 
 Para que puedas tener una mejor interaccion con mi codigo, te dare unos trucos que deberás tener en cuenta a la hora de jugar con el juego. 
 - Lee detalladamente las intrucciones que te pide el programa, debido a que deberás ingresar algún numéro en el juego y posteriormente ingresar una palabra para adivinar el enigma (spoiler alert - si la tienes bien terminaras el combate)
 - El programa no incluye interfaz visual
-- Si seleccionas una opción que no esta integrada en el codigo, te volverá a pedir esa opción.
+- Si seleccionas una opción que no esta integrada en el codigo, te volverá a pedir esa opción (en algunas ocasiones).
 - No ingresar ningun string con mayúsculas u espacios antes y después del string. 
 
 
