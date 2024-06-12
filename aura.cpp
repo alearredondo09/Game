@@ -70,6 +70,7 @@ int main() {
 
             std::cout << "------------------------------------------------------------------------------------" << std::endl;
             std::cout << "Te gustaria ver los personajes que creaste y sus atributos? :\nIngresa 1 para verlos" << std::endl;
+            std::cout << "\n- Ingresa 5 para no ver la informacion: " << std::endl;
             std::cin >> ver_personajes_p ;
 
             if (ver_personajes_p == 1) {
@@ -77,9 +78,9 @@ int main() {
                 std::cout << "\n- Ingresa 0 para ver la informacion de todos." << std::endl;
                 std::cout << "\n- Ingresa 1 para ver la informacion de " << robot1->getNom() << "." << std::endl;
                 std::cout << "\n- Ingresa 2 para ver la informacion de " << alien->getNom() << "." << std::endl;
-                std::cout << "\nIngresa 3 para ver la informacion de " << poe->getNom() << "." << std::endl;
+                std::cout << "\n- Ingresa 3 para ver la informacion de " << poe->getNom() << "." << std::endl;
                 std::cout << "\n- Ingresa 4 para ver la informacion de " << sephiroth->getNom() << std::endl;
-                std::cout << "\n- Ingresa 5 para no ver la informacion: " << std::endl;
+                
                 std::cin >> ver_personaje;
                 if(ver_personaje == 0){
                     std::cout << "\n";
