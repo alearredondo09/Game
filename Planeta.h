@@ -24,7 +24,6 @@ class Planeta{
     public: 
         Planeta(); // constructor por default
         Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2, Personaje* p3, Personaje* p4, Enigma enig); // constructor parametrizado
-        ~Planeta(); // destructor debido a que los apuntadores están en el heap
         std::string getNombre(); // getter de nombre
         std::string getHist(); // getter de historia
         Enigma getEnigma(); // getter de enigma
@@ -52,12 +51,6 @@ Planeta::Planeta(std::string nom, std::string hist, Personaje* p1, Personaje* p2
     personajes[3] = p4;
 }
 
-//destructor debido a que 
-Planeta::~Planeta() {
-    for (int i = 0; i < 4; ++i) {
-        delete personajes[i];
-    }
-}
 std::string Planeta::getNombre(){return nombre;}
 
 std::string Planeta::getHist(){return historia;}

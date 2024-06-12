@@ -59,7 +59,7 @@ int main() {
             aura.agregarPersonaje(2, poe);
             aura.agregarPersonaje(3, sephiroth);
 
-            std::cout << "Te gustaria ver las caracteristicas de tu planeta?\nIngresa 1 para verlos\nIngresa 9 para no verlos\n " << std::endl;
+            std::cout << "Te gustaria ver las caracteristicas de tu planeta?\nIngresa 1 para verlos\nIngresa 0 para no verlos\n " << std::endl;
             std::cin >> ver_planeta;
             
             if (ver_planeta == 1) {
@@ -79,7 +79,7 @@ int main() {
                 std::cout << "\n- Ingresa 2 para ver la informacion de " << alien->getNom() << "." << std::endl;
                 std::cout << "\nIngresa 3 para ver la informacion de " << poe->getNom() << "." << std::endl;
                 std::cout << "\n- Ingresa 4 para ver la informacion de " << sephiroth->getNom() << std::endl;
-                std::cout << "\n- Ingresa otro numero para no ver la informacion: " << std::endl;
+                std::cout << "\n- Ingresa 5 para no ver la informacion: " << std::endl;
                 std::cin >> ver_personaje;
                 if(ver_personaje == 0){
                     std::cout << "\n";
@@ -97,7 +97,7 @@ int main() {
                 }
             }
             
-            std::cout << "Te gustaria ver la historia del juego??\nIngresa 0 para no ver la historia\nIngresa 1 para verla :) = ";
+            std::cout << "Te gustaria ver la historia del juego??\nIngresa 0 para no ver la historia\nIngresa 1 para verla :)  ";
             std::cin >> ver_hist_juego;
             if (ver_hist_juego == 1){
                 //Historia del juego
@@ -138,6 +138,10 @@ int main() {
             aura.simularCombate(robot1, alien,poe, sephiroth, enig);
 
             break;
+            delete poe;
+            delete alien;
+            delete robot1,
+            delete sephiroth;
 
         } else {
             std::cout << "Debes ingresar un valor valido" << std::endl;
