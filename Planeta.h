@@ -176,7 +176,7 @@ void Planeta::agregarPersonaje(int num_personaje, Personaje* p1){
     if (num_personaje < 4) {
         personajes[num_personaje] = p1;
     } else {
-        std::cout << "No se pueden agregar más personajes, el arreglo está lleno." << std::endl;
+        std::cout << "No se pueden agregar más personajes, el arreglo esta lleno." << std::endl;
     }
 }
 
