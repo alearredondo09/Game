@@ -14,7 +14,7 @@ Para que puedas tener una mejor interaccion con mi codigo, te dare unos trucos q
 - Lee detalladamente las intrucciones que te pide el programa, debido a que deberás ingresar algún numéro en el juego y posteriormente ingresar una palabra para adivinar el enigma (spoiler alert - si la tienes bien terminaras el combate)
 - El programa no incluye interfaz visual
 - Si seleccionas una opción que no esta integrada en el codigo, te volverá a pedir esa opción (en algunas ocasiones).
-- No ingresar ningun string con mayúsculas u espacios antes y después del string. 
+- No ingresar ningun string con mayúsculas o espacios antes y después del string. 
 
 
 ### Consideraciones 🛸 : 
