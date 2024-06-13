@@ -19,7 +19,6 @@ class Personaje{
         int nivel;
         int salud;
         int ataque;
-        int defensa;
 
 
     public: 
