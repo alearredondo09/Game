@@ -18,7 +18,7 @@ class Robot : public Personaje{
         std::string habilidad; 
     public: 
         Robot(); // constructor por default
-        Robot(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
+        Robot(std::string nom, int _nivel, int _salud, int _ataque, std::string hab); // constructor parametrizado
         std::string getHab(); //getter de habilidad
         void setHab(std::string hab); // setter de habilidad
         void imprimir_personaje(); //imprime la informacion del personaje
@@ -31,7 +31,7 @@ class Robot : public Personaje{
 Robot::Robot(){
     habilidad = " teletransportarse ";
 }
-Robot::Robot(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab) : Personaje(nom,  _nivel, _salud, _ataque){
+Robot::Robot(std::string nom, int _nivel, int _salud, int _ataque, std::string hab) : Personaje(nom,  _nivel, _salud, _ataque){
     habilidad = hab;
 }
 

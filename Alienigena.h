@@ -17,7 +17,7 @@ class Alienigena : public Personaje{
         std::string habilidad;
     public: 
         Alienigena(); // constructor default
-        Alienigena(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab); // constructor parametrizado
+        Alienigena(std::string nom, int _nivel, int _salud, int _ataque, std::string hab); // constructor parametrizado
         std::string getHabilidad(); // getter de habilidad
         void setHabilidad(std::string hab); // setter de habilidad
         void imprimir_personaje(); //imprime la informacion del personaje
@@ -31,7 +31,7 @@ Alienigena::Alienigena(){
     habilidad = "veneno";
 }
 
-Alienigena::Alienigena(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string hab): Personaje(nom, _nivel, _salud, _ataque){
+Alienigena::Alienigena(std::string nom, int _nivel, int _salud, int _ataque, std::string hab): Personaje(nom, _nivel, _salud, _ataque){
     habilidad = hab;
 }
 

@@ -19,7 +19,7 @@ class Piloto : public Personaje{
         std::string vehiculo;
     public: 
         Piloto(); // constructor por default
-        Piloto(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo); // constructor parametizado
+        Piloto(std::string nom, int _nivel, int _salud, int _ataque, std::string _vehiculo); // constructor parametizado
         std::string getVehiculo(); // getter de vehiculo
         void setVehiculo(std::string _vehiculo); // setter de vehiculo
         void imprimir_personaje(); // metodo que imprime la informacion del personaje        
@@ -31,7 +31,7 @@ class Piloto : public Personaje{
 Piloto::Piloto(){
     vehiculo = "dron";
 }
-Piloto::Piloto(std::string nom, int _nivel, int _salud, int _ataque, int _defensa, std::string _vehiculo) : Personaje(nom, _nivel, _salud, _ataque){
+Piloto::Piloto(std::string nom, int _nivel, int _salud, int _ataque, std::string _vehiculo) : Personaje(nom, _nivel, _salud, _ataque){
     vehiculo = _vehiculo;
 }
 
