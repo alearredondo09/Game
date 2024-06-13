@@ -31,7 +31,7 @@ public:
 };
 
 Enigma::Enigma() {
-    nombre = "fuego";
+    nombre = "Aira";
     pregunta = "Soy mas ligero que el aire, pero cientos de personas no pueden levantarme. ¿Que soy?";
     respuesta_correcta = "burbuja";
 }

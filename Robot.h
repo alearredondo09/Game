@@ -28,7 +28,7 @@ class Robot : public Personaje{
 
 };
 
-Robot::Robot(){
+Robot::Robot() : Personaje(){
     habilidad = " teletransportarse ";
 }
 Robot::Robot(std::string nom, int _nivel, int _salud, int _ataque, std::string hab) : Personaje(nom,  _nivel, _salud, _ataque){

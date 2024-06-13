@@ -28,7 +28,7 @@ class Piloto : public Personaje{
         void mostrarEstado(); // metodo que muestra el estado del personaje
 };
 
-Piloto::Piloto(){
+Piloto::Piloto() : Personaje(){
     vehiculo = "dron";
 }
 Piloto::Piloto(std::string nom, int _nivel, int _salud, int _ataque, std::string _vehiculo) : Personaje(nom, _nivel, _salud, _ataque){

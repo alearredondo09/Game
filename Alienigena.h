@@ -27,7 +27,7 @@ class Alienigena : public Personaje{
 
 };
 
-Alienigena::Alienigena(){
+Alienigena::Alienigena() : Personaje(){
     habilidad = "veneno";
 }
 
