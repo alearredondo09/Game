@@ -3,70 +3,63 @@
 
 ![Image](ç.jpg)
 Image link: https://www.saludterapia.com/images/saludterapia/general/18677/mundo-distopico.jpg
+On the planet, an ancient prophecy has begun to manifest. The natural balance that has sustained life in this world is in danger, and a group of brave heroes must embark on an epic adventure to save their home.
 
-En el planeta na antigua profecia ha comenzado a manifestarse. El equilibrio natural que ha sostenido la vida en este mundo esta en peligro, y un grupo de valientes heroes deben embarcarse en una epica aventura para salvar su hogar. 
+### Functionality ⚔️:
+This is a game that will be developed within a story context created by me. Each character has unique abilities. What they need to do is solve puzzles and at the same time, they can attack. This game will remain active as long as the player performs the correct activities to continue the combat and not die or correctly guess the puzzle.
 
-### Funcionalidad ⚔️: 
-Este es un juego que se desarrollará en un contexto de historia creada por mi. Cada personaje posee habilidades únicas. Lo que deberán hacer es resolver enígmas y a su vez pueden atacar. Este juego estará activo siempre y cuando el jugador realice las actividades correctas para seguir con el combate y no morir o al no adivinar de manera correcta el enigma
+### Limitations:
+To have a better interaction with my code, I'll give you some tricks you should keep in mind when playing the game.
+- Read the instructions provided by the program carefully, as you will need to enter a number in the game and then enter a word to guess the puzzle (spoiler alert - if you get it right, you will finish the combat).
+- The program does not include a visual interface.
+- If you select an option that is not integrated into the code, it will ask you for that option again (in some cases).
+- Do not enter any string with capital letters or spaces before and after the string.
 
-### Limitaciones: 
-Para que puedas tener una mejor interaccion con mi codigo, te dare unos trucos que deberás tener en cuenta a la hora de jugar con el juego. 
-- Lee detalladamente las intrucciones que te pide el programa, debido a que deberás ingresar algún numéro en el juego y posteriormente ingresar una palabra para adivinar el enigma (spoiler alert - si la tienes bien terminaras el combate)
-- El programa no incluye interfaz visual
-- Si seleccionas una opción que no esta integrada en el codigo, te volverá a pedir esa opción (en algunas ocasiones).
-- No ingresar ningun string con mayúsculas o espacios antes y después del string. 
+### Considerations 🛸:
+The program only runs in the console and is made with C++, so to run the program, a compiler is needed. To compile the program, follow these steps:
+1. Download the files.
+2. Save them in the same folder.
+3. Open the terminal in the folder's directory.
+   Recommendation for users:
+   To navigate between folders, use cd + the folder name. To see the directory of each folder, use dir (for Windows) and ls (for Linux/Mac OS).
+4. In your terminal, type g++ main.cpp -o main (for Windows).
+5. In your terminal, type .\main (for Windows).
+6. Have fun playing the game!
 
+- In some parts, if the user enters a term not established in the program, the game will ask the user for the correct input until it receives one that it is familiar with.
 
-### Consideraciones 🛸 : 
-El programa solo corren en la consola y está hecho con c++, por lo que para correr el programa se necesitará el uso de un compilador. Para poder compilar el programa se deberá seguir los siguientes pasos: 
-  1. Descargar los archivos.
-  2. Guardarlos en la misma carpeta
-  3. Abrir la terminal en la dirección de la carpeta.
-     Recomendación para usuarios :
-     Para navegar entre carpetas, usa cd + el nombre de la carpeta. Para ver el directorio de cada carpeta usar dir (para sistema operativo Windows) y ls (para sistema operativo Linux/Mac OS).
-  4. En tu terminal escribe g++ main.cpp -o main (para Windows).
-  5. En tu terminal escribe .\main (para Windows).
-  6. ¡Diviértete jugando con el programa!
+## Interest 🛰️:
+This project emerged among several ideas; however, it was the one I chose to develop because I believe it has the complexity for me to learn all the topics in detail and at the same time review many topics I have seen throughout this year. It also stems from my love of creating stories, and although making a role-playing game is new to me, I will enjoy it to the fullest.
 
-- En algunas partes si el usuario introduce algún término que no está establecido en el programa, el juego volverá a preguntarle al usuario por el input correcto hasta que reciba uno con el que si está familiarizado.
-
-## Interés 🛰️: 
-Este proyecto surgió entre una de varias ideas, sin embargo, fue la que elegí desarrollar por que creo que tiene la complejidad para que pueda aprender a detalle todos los temas y a su vez repasar muchos temas que he visto a lo largo de este año. También surge por mi amor de crear historias, aunque, hacer un juego de rol es algo nuevo para mí, lo disfrutaré a mi máximo. 
-
-### Diagrama Uml 🏁 : 
+### UML Diagram 🏁:
 ![Juego_Rol]![image](https://github.com/alearredondo09/OOP_2/assets/103458261/9b15c22b-b05e-4a76-8db2-d9b5637815f0)
 
-
-### Documentación: 
-* Librerias:
+### Documentation:
+* Libraries:
   - iostream:
     https://www2.eii.uva.es/fund_inf/cpp/temas/3_entrada_salida/iostream.html
 
-### Correcciones: 
-## Avance 1: 
-- Se creo el diagrama de clases para poder visualizar la manera en la que iba a implementar mi videojuego, de esa manera, tenia que plantearme una idea de como puedo hacer que mi videojuego se convierta en una realidad y a su vez de las limitaciones que tendrá. Si bien esta es mi primera vez haciendo un videojuego siento que la disfrutaré mucho.
+### Corrections:
+## Progress 1:
+- The class diagram was created to visualize how I was going to implement my video game. This way, I had to come up with an idea of how I could make my video game a reality and also consider the limitations it would have. Although this is my first time making a video game, I feel I will enjoy it a lot.
 
-Comentarios del avance: 
-La idea de implementar POO para hacer un videojuego es correcta y muy interesante, bien explicado los casos que harían que el proyecto deje de funcionar y el diagrama UML es correcto y bien explicado, disfruta de la implementación!!
+Progress comments:
+The idea of implementing OOP to make a video game is correct and very interesting. The cases that would cause the project to stop working are well explained, and the UML diagram is correct and well explained. Enjoy the implementation!
 
-## Avance 2: 
-- Para esta entrega tuve que implementar herencia, modificadores de acceso, sobrecarga y sobreescritura.
+## Progress 2:
+- For this delivery, I had to implement inheritance, access modifiers, overloading, and overriding.
 
-Comentarios del avance: 
-Bien implementada la herencia, correcto uso de modificadores de acceso, sobrecarga y sobreescritura, el output de tu codigo es bastante confuso y hay algunos errores de syntaxis pues se muestra en la terminal por ejemplo /n, el correcto uso es \n
+Progress comments:
+Well-implemented inheritance, correct use of access modifiers, overloading, and overriding. The output of your code is quite confusing, and there are some syntax errors, for example, /n is displayed in the terminal; the correct usage is \n.
 
-## Avenace 3: 
-- Durante este avance realize la implementación de polimorfismo para mis metodos del videojuego, esto me permitió poder realizar de una mejor manera la implementación del metodo simular combate en mi clase Planeta. 
+## Progress 3:
+- During this progress, I implemented polymorphism for my video game's methods. This allowed me to better implement the simulate combat method in my Planeta class.
 
-Comentarios del avance: 
-Bien implementado el polimorfismo
+Progress comments:
+Well-implemented polymorphism.
 
-## Avance 4: 
-- Para esta entrega, hice unas modificaciones bastantes notorias al codigo de mis clases, sin embargo la idea iba tomando forma, pude tener un mejor planteamiento de como hacer mi mini videojuego. 
-
-- Agregaron/quitaron atributos
-- Documento el código
-- Actualización el diagrama UML
-  
-  
-
+## Progress 4:
+- For this delivery, I made some significant modifications to the code of my classes; however, the idea was taking shape, and I had a better idea of how to make my mini video game.
+- Added/removed attributes.
+- Documented the code.
+- Updated the UML diagram.
